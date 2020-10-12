@@ -6,5 +6,5 @@ export const Box = styled.div`
   justify-content: center;
   align-items: center;
 
-  margin: 70px 50px;
+  margin: 70px 200px;
 `;

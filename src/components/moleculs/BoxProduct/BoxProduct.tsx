@@ -1,17 +1,29 @@
-import React, { FC } from 'react';
-import { Product } from './BoxProductStyles';
+import React from 'react';
+import { Product, Tags, ImgBox, DescriptionBox } from './BoxProductStyles';
 import ProductImg from '../../atoms/ProductImg/ProductImg';
-import { PropsProduct } from '../../../models/Product';
 import Content from '../../atoms/Content/Content';
 import data from '../../../utils/data';
+import Tag from '../../atoms/Tag/Tag';
 
-const BoxProduct: FC<PropsProduct> = (props) => {
+const BoxProduct = () => {
   return (
     <>
-      {data.map((product) => (
-        <Product>
-          <ProductImg imageSrc={product.imageSrc} />
-          <Content />
+      {data.map((product, index) => (
+        <Product key={index}>
+          <ImgBox>
+            <ProductImg imageSrc={product.imageSrc} />
+          </ImgBox>
+          <DescriptionBox>
+            <Content
+              name={product.name}
+              description={`${product.description.substring(0, 100)}...`}
+            />
+            <Tags>
+              {product.tags.map((tag, index) => (
+                <Tag key={index} title={tag} />
+              ))}
+            </Tags>
+          </DescriptionBox>
         </Product>
       ))}
     </>

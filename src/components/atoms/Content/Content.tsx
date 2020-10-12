@@ -1,11 +1,16 @@
-import React from 'react';
-import { ContentWrapper } from './ContentStyle';
+import React, { FC } from 'react';
+import { ContentWrapper, Title } from './ContentStyle';
 
-const Content = () => {
+type PropsContent = {
+  description: string;
+  name: string;
+};
+
+const Content: FC<PropsContent> = ({ name, description }) => {
   return (
     <ContentWrapper>
-      <h1>Title</h1>
-      <span>Content</span>
+      <Title>{name}</Title>
+      <span>{description}</span>
     </ContentWrapper>
   );
 };

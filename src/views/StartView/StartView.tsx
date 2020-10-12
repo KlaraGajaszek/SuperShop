@@ -3,7 +3,7 @@ import BoxProduct from '../../components/moleculs/BoxProduct/BoxProduct';
 import { Box } from './StartViewStyles';
 import { PropsProduct } from '../../models/Product';
 
-const StartView: FC<PropsProduct> = () => {
+const StartView = () => {
   return (
     <Box>
       <BoxProduct />

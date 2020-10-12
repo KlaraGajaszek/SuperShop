@@ -49,3 +49,10 @@ const data = [
 ];
 
 export default data;
+
+export const LinkHeader = [
+  { title: 'title1', route: 'route' },
+  { title: 'title2', route: 'route2' },
+  { title: 'title', route: 'route3' },
+  { title: 'title', route: 'route4' },
+];
