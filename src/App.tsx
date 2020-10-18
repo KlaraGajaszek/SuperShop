@@ -1,17 +1,23 @@
 import React, { FC } from 'react';
-import Header from './components/moleculs/Header/Header';
-import StartView from '../src/views/StartView/StartView';
-import { PropsProduct } from './models/Product';
-import { HeaderType } from '../src/components/moleculs/Header/Header';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
-type App = PropsProduct & HeaderType;
+import Header from './components/organisms/Header/Header';
+import StartView from './pages/StartView/StartView';
+import ProductPage from './pages/Product/ProductPage';
 
 const App: FC = () => {
   return (
-    <>
+    <BrowserRouter>
       <Header />
-      <StartView />
-    </>
+      <Switch>
+        <Route path="/products/:id">
+          <ProductPage />
+        </Route>
+        <Route path="/">
+          <StartView />
+        </Route>
+      </Switch>
+    </BrowserRouter>
   );
 };
 
