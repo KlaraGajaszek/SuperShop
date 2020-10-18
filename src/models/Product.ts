@@ -4,7 +4,7 @@ export type PropsProduct = {
   description: string;
   imageSrc: string;
   tags: string[];
-  price?: number;
+  price: number;
 };
 
 export type PropsProductImage = {
