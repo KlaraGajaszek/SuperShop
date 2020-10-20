@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React from 'react';
 import { ReactComponent as Supershop } from '../../../assests/SUPERSHOP.svg';
 import { HeaderBlock, LiItem, NavbarContainerUl, AItem } from './HeaderStyles';
 import { LinkHeader } from '../../../utils/data';

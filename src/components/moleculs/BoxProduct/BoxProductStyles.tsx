@@ -1,10 +1,11 @@
 import styled from 'styled-components';
 
-export const Product = styled.div`
+export const Product = styled.button`
   display: grid;
+  border: none;
+  cursor: pointer;
   grid-template-columns: 40% 60%;
   margin: 15px 0;
-  width: 100%;
   padding: 15px 15px;
   border-radius: 8px;
   background-color: #fff;
