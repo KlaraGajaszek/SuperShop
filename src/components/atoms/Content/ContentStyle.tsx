@@ -2,10 +2,11 @@ import styled from 'styled-components';
 
 export const ContentWrapper = styled.div`
   background-color: #fefefe;
-  padding: 0 20px 0 50px;
+  padding-top: 2px;
 `;
 
 export const Title = styled.h1`
+  margin-bottom: 15px;
   padding: 0;
-  margin: 0;
+  margin-bottom: 5px;
 `;

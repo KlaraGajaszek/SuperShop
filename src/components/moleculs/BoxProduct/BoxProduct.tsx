@@ -1,13 +1,12 @@
 import React from 'react';
-import { Product, Tags, ImgBox, DescriptionBox } from './BoxProductStyles';
+import { RouteComponentProps, withRouter } from 'react-router';
+
 import ProductImg from '../../atoms/ProductImg/ProductImg';
 import Content from '../../atoms/Content/Content';
-import data from '../../../utils/data';
 import Tag from '../../atoms/Tag/Tag';
-import { withRouter } from 'react-router';
-import { RouteComponentProps } from 'react-router';
-
+import data from '../../../utils/data';
 import { PropsProduct } from '../../../models/Product';
+import { Product, Tags, ImgBox, DescriptionBox } from './BoxProductStyles';
 
 class BoxProduct extends React.Component<RouteComponentProps, PropsProduct> {
   render() {

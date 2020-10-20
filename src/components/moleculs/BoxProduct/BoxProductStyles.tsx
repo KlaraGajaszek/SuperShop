@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const Product = styled.button`
   display: grid;
   border: none;
+  outline: none;
   cursor: pointer;
   grid-template-columns: 40% 60%;
   margin: 15px 0;
