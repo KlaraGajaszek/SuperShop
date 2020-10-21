@@ -1,14 +1,17 @@
-import React, { FC } from 'react';
+import React from 'react';
 
 import { ProductImage } from './ProductImgStyles';
 import { PropsProductImage } from '../../../models/Product';
 
-const ProductImg: FC<PropsProductImage> = ({ imageSrc }) => {
-  return (
-    <>
-      <ProductImage src={imageSrc} alt="Product Photo" />
-    </>
-  );
-};
+class ProductImg extends React.Component<PropsProductImage> {
+  render() {
+    const { imageSrc } = this.props;
+    return (
+      <>
+        <ProductImage src={imageSrc} alt="Product Photo" />
+      </>
+    );
+  }
+}
 
 export default ProductImg;
