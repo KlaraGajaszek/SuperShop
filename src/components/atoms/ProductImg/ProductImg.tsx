@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+
 import { ProductImage } from './ProductImgStyles';
 import { PropsProductImage } from '../../../models/Product';
 
