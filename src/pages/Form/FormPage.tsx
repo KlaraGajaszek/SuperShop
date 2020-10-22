@@ -65,12 +65,12 @@ const FormPage = () => {
     <form onSubmit={formik.handleSubmit}>
       <label htmlFor="name">Name</label>
       <input
-        name="name"
-        id="name"
         type="text"
-        onChange={formik.handleChange}
-        value={formik.values.name}
-        onBlur={formik.handleBlur}
+        // name="name"
+        // onChange={formik.handleChange}
+        // value={formik.values.name}
+        // onBlur={formik.handleBlur}
+        {...formik.getFieldProps('name')}
       />
       {formik.touched.name && formik.errors.name ? (
         <div>{formik.errors.name}</div>
@@ -79,12 +79,12 @@ const FormPage = () => {
       )}
       <label htmlFor="email">Email</label>
       <input
-        name="email"
-        id="email"
         type="text"
-        onChange={formik.handleChange}
-        value={formik.values.email}
-        onBlur={formik.handleBlur}
+        // name="email"
+        // onChange={formik.handleChange}
+        // value={formik.values.email}
+        // onBlur={formik.handleBlur}
+        {...formik.getFieldProps('email')}
       />
       {formik.touched.email && formik.errors.email ? (
         <div>{formik.errors.email}</div>
