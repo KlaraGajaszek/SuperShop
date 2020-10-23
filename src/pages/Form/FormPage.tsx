@@ -1,5 +1,13 @@
 import React from 'react';
-import { Formik, Form, Field, ErrorMessage, FieldArray } from 'formik';
+import axios from 'axios';
+import {
+  Formik,
+  Form,
+  Field,
+  ErrorMessage,
+  FieldArray,
+  FormikHelpers,
+} from 'formik';
 import * as Yup from 'yup';
 
 type InitialValue = {
@@ -7,7 +15,7 @@ type InitialValue = {
   description: string;
   image: string;
   tags: string[];
-  price: number;
+  price: string | number;
 };
 
 const initialValues: InitialValue = {
@@ -15,24 +23,43 @@ const initialValues: InitialValue = {
   description: '',
   image: '',
   tags: [''],
-  price: 0, // jak dobrac wartosc poczatkowa dla typu number
-};
-
-const onSubmit = (values: InitialValue, onSubmitProps: any) => {
-  console.log(values);
-  console.log('onSubmitProps', onSubmitProps);
-  onSubmitProps.resetForm();
+  price: '',
 };
 
 const validationSchema = Yup.object().shape({
   name: Yup.string().required().label('Name'),
   description: Yup.string().required().label('Description'),
-  image: Yup.string().required().label('Image'),
+  image: Yup.string().label('Image'),
   tags: Yup.string().label('Tags'),
   price: Yup.string().required().label('Price'),
 });
 
 const FormPage = () => {
+  const onSubmit = (
+    values: InitialValue,
+    onSubmitProps: FormikHelpers<InitialValue>
+  ) => {
+    axios({
+      method: 'post',
+      url: `https://hookb.in/aBDEM1zY1lI1oobLKe7N`,
+      data: {
+        name: values.name,
+        description: values.description,
+        tags: values.tags,
+        image: values.image,
+        price: values.price,
+      },
+    });
+    console.log('values', {
+      name: values.name,
+      description: values.description,
+      tags: values.tags,
+      image: values.image,
+      price: values.price,
+    });
+    onSubmitProps.resetForm();
+  };
+
   return (
     <Formik
       initialValues={initialValues}
@@ -40,10 +67,8 @@ const FormPage = () => {
       onSubmit={onSubmit}
       validateOnChange={false}
       validateOnBlur={false}
-      // validateOnMount
     >
-      {(formik) => {
-        console.log(formik);
+      {(formProps) => {
         return (
           <Form>
             <label htmlFor="name">Name</label>
@@ -57,7 +82,14 @@ const FormPage = () => {
             <ErrorMessage name="description" />
 
             <label htmlFor="image">Image</label>
-            <Field type="text" id="image" name="image" />
+            <input
+              type="file"
+              id="image"
+              name="image"
+              onChange={(event: React.ChangeEvent<any>) => {
+                formProps.setFieldValue('image', event.target.files[0]);
+              }}
+            />
             <ErrorMessage name="image" />
 
             <label htmlFor="tags">Tags</label>
@@ -84,12 +116,10 @@ const FormPage = () => {
                 );
               }}
             </FieldArray>
-
             <label htmlFor="price">Price</label>
             <Field type="text" id="price" name="price" />
             <ErrorMessage name="price" />
-
-            <button disabled={formik.isSubmitting}>Submit</button>
+            <button type="submit">Submit</button>
           </Form>
         );
       }}
