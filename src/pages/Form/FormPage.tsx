@@ -14,7 +14,7 @@ type InitialValue = {
   description: string;
   image: string;
   tags: string[];
-  price: string | number;
+  price: string;
 };
 
 const initialValues: InitialValue = {
@@ -38,17 +38,16 @@ const FormPage = () => {
     values: InitialValue,
     onSubmitProps: FormikHelpers<InitialValue>
   ) => {
-    console.log(values);
+    console.log(100 * Number(values.price));
     axios({
       method: 'post',
       url: `https://hookb.in/aBDEM1zY1lI1oobLKe7N`,
-
       data: {
         name: values.name,
         description: values.description,
         tags: values.tags,
         image: values.image,
-        price: values.price,
+        price: 100 * Number(values.price.replace(/,/g, '.')),
       },
     });
     onSubmitProps.resetForm();
