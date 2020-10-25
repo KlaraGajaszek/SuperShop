@@ -2,7 +2,9 @@ import styled from 'styled-components';
 
 export const TagStyles = styled.div`
   margin: 30px 20px 0px 0;
-
+  border: none;
+  outline: none;
+  cursor: pointer;
   background-color: #ffff;
   border-radius: 15px;
   padding: 5px 30px;
