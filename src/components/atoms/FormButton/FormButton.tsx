@@ -5,7 +5,6 @@ import { ButtonWrapper } from './FormButtonStyles';
 type PropsButton = {
   content: string;
   bgcolor: string;
-  onClick?: () => void;
   radius: string;
   margin: string;
   type: string;

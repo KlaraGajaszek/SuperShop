@@ -37,8 +37,7 @@ const validationSchema = Yup.object().shape({
 const FormPage = () => {
   const [modalVisible, setStateModlVisible] = useState(false);
 
-  const modalHandler = () => {
-    // e.preventDefault(); //i added this to prevent the default behavior
+  const modalHandlerOpen = () => {
     setStateModlVisible(true);
   };
 
@@ -46,7 +45,7 @@ const FormPage = () => {
     values: InitialValue,
     onSubmitProps: FormikHelpers<InitialValue>
   ) => {
-    console.log(100 * Number(values.price));
+    console.log('onSubmitProps', onSubmitProps);
     axios({
       method: 'post',
       url: `https://hookb.in/aBDEM1zY1lI1oobLKe7N`,
@@ -58,7 +57,10 @@ const FormPage = () => {
         price: 100 * Number(values.price.replace(/,/g, '.')),
       },
     });
-    onSubmitProps.resetForm();
+    setTimeout(() => {
+      setStateModlVisible(false);
+    }, 500);
+    onSubmitProps.setSubmitting(true);
   };
 
   return (
@@ -70,6 +72,7 @@ const FormPage = () => {
       validateOnBlur={false}
     >
       {(formProps) => {
+        console.log('formProps', formProps);
         // const array = [
         //   formProps.errors.name,
         //   formProps.errors.image,
@@ -98,7 +101,6 @@ const FormPage = () => {
                   name="tags"
                   render={(arrayHelpers) => (
                     <div>
-                      {console.log('arrayHelpers', arrayHelpers)}
                       {arrayHelpers.form.values.tags?.map(
                         (tag: string, index: number) => (
                           <div key={index}>
@@ -172,13 +174,15 @@ const FormPage = () => {
                 content={formProps.errors}
               />
             </Modal>
-            <button
-              onClick={() => {
-                modalHandler();
-              }}
-            >
-              Show Modal
-            </button>
+            <ButtonWithIcon
+              type="button"
+              bgcolor={'#dc143c'}
+              radius={'0px 0px 0px 0px'}
+              margin={'5px 0px 0 0'}
+              content={'Modal Open'}
+              btnFunction={() => modalHandlerOpen()}
+              disable={false}
+            />
           </Form>
         );
       }}
