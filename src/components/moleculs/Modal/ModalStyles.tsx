@@ -1,15 +1,34 @@
 import styled from 'styled-components';
 
 export const ModalBox = styled.div`
-  position: fixed;
-  z-index: 500;
-  background-color: white;
-  width: 70%;
-  border: 1px solid #ccc;
-  box-shadow: 1px 1px 1px black;
-  padding: 16px;
-  left: 15%;
-  top: 30%;
-  box-sizing: border-box;
-  transition: all 0.3s ease-out;
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+`;
+
+export const ModalContent = styled.div`
+  padding-top: 10px;
+  background-color: #ffff;
+  width: 40%;
+  margin: auto;
+  border-radius: 5px;
+`;
+
+export const CloseButton = styled.button`
+  width: 25px;
+  height: 25px;
+  background-color: black;
+  color: #ffff;
+  border-radius: 3px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  float: right;
+  margin: 0 10px 0 0;
 `;

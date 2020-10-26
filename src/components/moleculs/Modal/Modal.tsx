@@ -1,9 +1,10 @@
 import React, { FC } from 'react';
-import { ModalBox } from './ModalStyles';
+import { ModalBox, ModalContent, CloseButton } from './ModalStyles';
 
 type ModalProps = {
   content?: string;
   show: boolean;
+  clsFunction: () => void;
 };
 
 const Modal: FC<ModalProps> = (props) => {
@@ -11,8 +12,11 @@ const Modal: FC<ModalProps> = (props) => {
     <>
       {props.show ? (
         <ModalBox>
-          <p>{props.content}</p>
-          {props.children}
+          <ModalContent>
+            <CloseButton onClick={() => props.clsFunction()}>X</CloseButton>
+            <p>{props.content}</p>
+            {props.children}
+          </ModalContent>
         </ModalBox>
       ) : (
         ''

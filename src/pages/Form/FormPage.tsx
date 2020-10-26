@@ -38,7 +38,6 @@ const FormPage = () => {
   const [modalVisible, setStateModlVisible] = useState(false);
 
   const modalHandlerOpen = () => {
-    // e.preventDefault(); //i added this to prevent the default behavior
     setStateModlVisible(true);
   };
 
@@ -81,7 +80,11 @@ const FormPage = () => {
         // ];
         return (
           <Form>
-            <Modal content={'Add product'} show={modalVisible}>
+            <Modal
+              content={'Add product'}
+              show={modalVisible}
+              clsFunction={() => setStateModlVisible(false)}
+            >
               <BoxWrapper>
                 <InputDefault
                   name="name"
@@ -168,11 +171,14 @@ const FormPage = () => {
                   margin={'5px 0 0 0'}
                 />
               </BoxWrapper>
-              <ErrorBoxWrapper
-                bgcolor={'rgba(207, 0, 15, 0.2)'}
-                radius={'5px'}
-                content={formProps.errors}
-              />
+
+              {formProps.touched && formProps.errors && (
+                <ErrorBoxWrapper
+                  bgcolor={'rgba(207, 0, 15, 0.2)'}
+                  radius={'5px'}
+                  content={formProps.errors}
+                />
+              )}
             </Modal>
             <ButtonWithIcon
               type="button"
