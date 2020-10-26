@@ -38,6 +38,7 @@ const FormPage = () => {
   const [modalVisible, setStateModlVisible] = useState(false);
 
   const modalHandlerOpen = () => {
+    // e.preventDefault(); //i added this to prevent the default behavior
     setStateModlVisible(true);
   };
 
@@ -45,7 +46,6 @@ const FormPage = () => {
     values: InitialValue,
     onSubmitProps: FormikHelpers<InitialValue>
   ) => {
-    console.log('onSubmitProps', onSubmitProps);
     axios({
       method: 'post',
       url: `https://hookb.in/aBDEM1zY1lI1oobLKe7N`,
@@ -60,7 +60,7 @@ const FormPage = () => {
     setTimeout(() => {
       setStateModlVisible(false);
     }, 500);
-    onSubmitProps.setSubmitting(true);
+    onSubmitProps.resetForm();
   };
 
   return (
