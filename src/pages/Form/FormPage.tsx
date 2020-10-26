@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import { Formik, Form, FieldArray, FormikHelpers } from 'formik';
 import * as Yup from 'yup';
@@ -8,6 +8,7 @@ import { BoxWrapper } from './FormPageStyles';
 import FormButton from '../../components/atoms/FormButton/FormButton';
 import ErrorBoxWrapper from '../../components/atoms/ErrorBox/ErrorBox';
 import ButtonWithIcon from '../../components/atoms/ButtonwithIcon/ButtonWithIcon';
+import Modal from '../../components/moleculs/Modal/Modal';
 
 type InitialValue = {
   name: string;
@@ -34,6 +35,13 @@ const validationSchema = Yup.object().shape({
 });
 
 const FormPage = () => {
+  const [modalVisible, setStateModlVisible] = useState(false);
+
+  const modalHandler = () => {
+    // e.preventDefault(); //i added this to prevent the default behavior
+    setStateModlVisible(true);
+  };
+
   const onSubmit = (
     values: InitialValue,
     onSubmitProps: FormikHelpers<InitialValue>
@@ -70,98 +78,107 @@ const FormPage = () => {
         // ];
         return (
           <Form>
-            <BoxWrapper>
-              <InputDefault
-                name="name"
-                placeholder={'name'}
+            <Modal content={'Add product'} show={modalVisible}>
+              <BoxWrapper>
+                <InputDefault
+                  name="name"
+                  placeholder={'name'}
+                  radius={'5px'}
+                  margin={'5px 15px 0  0'}
+                  type="input"
+                />
+                <InputDefault
+                  name="description"
+                  placeholder={'description'}
+                  radius={'5px'}
+                  margin={'5px 15px 0 0'}
+                  type="input"
+                />
+                <FieldArray
+                  name="tags"
+                  render={(arrayHelpers) => (
+                    <div>
+                      {console.log('arrayHelpers', arrayHelpers)}
+                      {arrayHelpers.form.values.tags?.map(
+                        (tag: string, index: number) => (
+                          <div key={index}>
+                            <InputDefault
+                              name={`tags[${index}]`}
+                              placeholder={'tag'}
+                              radius={'5px 0 0 5px'}
+                              margin={'5px 0px 0 0'}
+                              type="input"
+                            />
+                            <ButtonWithIcon
+                              type="button"
+                              bgcolor={'#dc143c'}
+                              radius={'0px 0px 0px 0px'}
+                              margin={'5px 0px 0 0'}
+                              content={'+'}
+                              btnFunction={() => arrayHelpers.push('')}
+                              disable={false}
+                            />
+                            <ButtonWithIcon
+                              type="button"
+                              bgcolor={
+                                arrayHelpers.form.values.tags.length > 1
+                                  ? 'gray'
+                                  : '#D3D3D3'
+                              }
+                              radius={'0px 5px 5px 0px'}
+                              margin={'5px 0px 0 0'}
+                              content={'-'}
+                              btnFunction={() => arrayHelpers.remove(index)}
+                              disable={
+                                arrayHelpers.form.values.tags.length > 1
+                                  ? false
+                                  : true
+                              }
+                            />
+                          </div>
+                        )
+                      )}
+                    </div>
+                  )}
+                />
+                <InputDefault
+                  name="price"
+                  placeholder={'price'}
+                  radius={'5px'}
+                  margin={'5px 15px 0 15px'}
+                  type="input"
+                />
+                <input
+                  type="file"
+                  name="image"
+                  onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                    if (!e.target.files) {
+                      return;
+                    }
+                    formProps.setFieldValue('image', e.target.files[0]);
+                  }}
+                />
+                <FormButton
+                  type="submit"
+                  content={'Submit'}
+                  bgcolor={'#006aff'}
+                  radius={'5px'}
+                  margin={'5px 0 0 0'}
+                />
+              </BoxWrapper>
+              <ErrorBoxWrapper
+                bgcolor={'rgba(207, 0, 15, 0.2)'}
                 radius={'5px'}
-                margin={'5px 15px 0  0'}
-                type="input"
+                content={formProps.errors}
               />
-              <InputDefault
-                name="description"
-                placeholder={'description'}
-                radius={'5px'}
-                margin={'5px 15px 0 0'}
-                type="input"
-              />
-              <FieldArray
-                name="tags"
-                render={(arrayHelpers) => (
-                  <div>
-                    {console.log('arrayHelpers', arrayHelpers)}
-                    {arrayHelpers.form.values.tags?.map(
-                      (tag: string, index: number) => (
-                        <div key={index}>
-                          <InputDefault
-                            name={`tags[${index}]`}
-                            placeholder={'tag'}
-                            radius={'5px 0 0 5px'}
-                            margin={'5px 0px 0 0'}
-                            type="input"
-                          />
-                          <ButtonWithIcon
-                            type="button"
-                            bgcolor={'#dc143c'}
-                            radius={'0px 0px 0px 0px'}
-                            margin={'5px 0px 0 0'}
-                            content={'+'}
-                            btnFunction={() => arrayHelpers.push('')}
-                            disable={false}
-                          />
-                          <ButtonWithIcon
-                            type="button"
-                            bgcolor={
-                              arrayHelpers.form.values.tags.length > 1
-                                ? 'gray'
-                                : '#D3D3D3'
-                            }
-                            radius={'0px 5px 5px 0px'}
-                            margin={'5px 0px 0 0'}
-                            content={'-'}
-                            btnFunction={() => arrayHelpers.remove(index)}
-                            disable={
-                              arrayHelpers.form.values.tags.length > 1
-                                ? false
-                                : true
-                            }
-                          />
-                        </div>
-                      )
-                    )}
-                  </div>
-                )}
-              />
-              <InputDefault
-                name="price"
-                placeholder={'price'}
-                radius={'5px'}
-                margin={'5px 15px 0 15px'}
-                type="input"
-              />
-              <input
-                type="file"
-                name="image"
-                onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-                  if (!e.target.files) {
-                    return;
-                  }
-                  formProps.setFieldValue('image', e.target.files[0]);
-                }}
-              />
-              <FormButton
-                type="submit"
-                content={'Submit'}
-                bgcolor={'#006aff'}
-                radius={'5px'}
-                margin={'5px 0 0 0'}
-              />
-            </BoxWrapper>
-            <ErrorBoxWrapper
-              bgcolor={'rgba(207, 0, 15, 0.2)'}
-              radius={'5px'}
-              content={formProps.errors}
-            />
+            </Modal>
+            <button
+              onClick={() => {
+                modalHandler();
+              }}
+            >
+              Show Modal
+            </button>
           </Form>
         );
       }}
