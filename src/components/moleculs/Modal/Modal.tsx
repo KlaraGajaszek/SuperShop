@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { ModalBox, ModalContent, CloseButton } from './ModalStyles';
+import { ModalBox, ModalContent, CloseButton, ModalTitle } from './ModalStyles';
 
 type ModalProps = {
   content?: string;
@@ -14,7 +14,8 @@ const Modal: FC<ModalProps> = (props) => {
         <ModalBox>
           <ModalContent>
             <CloseButton onClick={() => props.clsFunction()}>X</CloseButton>
-            <p>{props.content}</p>
+
+            <ModalTitle>{props.content}</ModalTitle>
             {props.children}
           </ModalContent>
         </ModalBox>

@@ -5,7 +5,8 @@ export const FormikInput = styled.input<{ radius: string; margin: string }>`
   border-color: #888888;
   border: none;
   outline: none;
-  height: 28px;
+  height: 35px;
+  width: 60%;
   padding-left: 6px;
   background-color: #dcdcdc;
   margin: ${(props) => props.margin};

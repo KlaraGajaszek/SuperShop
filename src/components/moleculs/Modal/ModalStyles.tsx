@@ -14,6 +14,7 @@ export const ModalBox = styled.div`
 
 export const ModalContent = styled.div`
   padding-top: 10px;
+  min-width: 50%;
   background-color: #ffff;
   width: 40%;
   margin: auto;
@@ -31,4 +32,11 @@ export const CloseButton = styled.button`
   cursor: pointer;
   float: right;
   margin: 0 10px 0 0;
+`;
+
+export const ModalTitle = styled.p`
+  color: black;
+  font-weight: bold;
+  font-size: 25px;
+  text-align: center;
 `;

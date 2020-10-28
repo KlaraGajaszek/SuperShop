@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 
 import { ButtonWrapper } from './FormButtonStyles';
 
@@ -10,18 +10,16 @@ type PropsButton = {
   type: string;
 };
 
-class FormButton extends React.Component<PropsButton> {
-  render() {
-    return (
-      <ButtonWrapper
-        bgcolor={this.props.bgcolor}
-        radius={this.props.radius}
-        margin={this.props.margin}
-      >
-        {this.props.content}
-      </ButtonWrapper>
-    );
-  }
-}
+const FormButton: FC<PropsButton> = (props) => {
+  return (
+    <ButtonWrapper
+      bgcolor={props.bgcolor}
+      radius={props.radius}
+      margin={props.margin}
+    >
+      {props.content}
+    </ButtonWrapper>
+  );
+};
 
 export default FormButton;
