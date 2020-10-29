@@ -48,6 +48,10 @@ const FormPage = () => {
   ) => {
     let bodyFormData = new FormData();
 
+    bodyFormData.append('name', values.name);
+    bodyFormData.append('description', values.description);
+    bodyFormData.append('tags', JSON.stringify(values.tags));
+    bodyFormData.append('price', values.price);
     bodyFormData.append('image', values.image);
 
     // return fetch(`https://hookb.in/aBDEM1zY1lI1oobLKe7N`, {
@@ -61,18 +65,11 @@ const FormPage = () => {
 
     axios({
       method: 'post',
-      url: `https://hookb.in/aBDEM1zY1lI1oobLKe7N`,
-      // headers: { 'Content-Type': 'applicationx-www-form-urlencoded' },
-      data: {
-        name: values.name,
-        description: values.description,
-        tags: values.tags,
-        image: bodyFormData.append('image', values.image),
-        price: 100 * Number(values.price.replace(/,/g, '.')),
-      },
+      url: `https://httpbin.org/post`,
+      headers: { 'Content-Type': 'multipart/form-data' },
+      data: bodyFormData,
     })
       .then((res) => console.log('res', res))
-      .then((data) => console.log('DATA', data))
       .then(function () {
         console.log('oki');
         setTimeout(() => {
@@ -97,7 +94,7 @@ const FormPage = () => {
     >
       {(formProps) => {
         const hasChanged = !_.isEqual(formProps.values, initialValues);
-        console.log('hasChanged', hasChanged);
+        console.log('formProps', formProps);
 
         const hasErrors = Object.keys(formProps.errors).length > 0;
         console.log('hasErrors', hasErrors);

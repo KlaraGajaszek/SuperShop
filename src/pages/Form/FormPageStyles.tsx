@@ -17,6 +17,7 @@ export const TagsBox = styled.div`
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  flex-wrap: nowrap;
 `;
 
 export const ButtonTest = styled.button`
