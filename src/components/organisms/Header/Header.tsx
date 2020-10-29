@@ -15,7 +15,7 @@ const Header = () => {
       <Supershop />
       <NavbarContainerUl>
         {LinkHeader.map((link) => (
-          <LiItem>
+          <LiItem key={link.route}>
             <AItem href={link.route}>{link.title}</AItem>
           </LiItem>
         ))}

@@ -4,7 +4,6 @@ export const BoxWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 4% 20%;
 `;
 
 export const Box = styled.div`
