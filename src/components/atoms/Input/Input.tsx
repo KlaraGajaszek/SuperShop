@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { FormikInput, InputError } from './InputStyles';
+import { FormikInput, InputError, FieldBox } from './InputStyles';
 import { Field, ErrorMessage } from 'formik';
 
 type PropsInput = {
@@ -16,7 +16,7 @@ type PropsInput = {
 class InputDefault extends React.Component<PropsInput> {
   render() {
     return (
-      <>
+      <FieldBox>
         <Field
           type="text"
           id="name"
@@ -25,7 +25,7 @@ class InputDefault extends React.Component<PropsInput> {
           {...this.props}
         />
         <ErrorMessage name={this.props.name} component={InputError} />
-      </>
+      </FieldBox>
     );
   }
 }
