@@ -9,7 +9,7 @@ export const ButtonWithIconStyles = styled.button<{
   float: none !important;
   border: none;
   outline: none;
-  padding: 5px 10px;
+  padding: 5px 15px;
   background-color: ${(props) => props.bgcolor};
   margin: ${(props) => props.margin};
   cursor: pointer;

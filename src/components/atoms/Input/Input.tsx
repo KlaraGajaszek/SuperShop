@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { FormikInput } from './InputStyles';
-import { Field } from 'formik';
+import { FormikInput, InputError } from './InputStyles';
+import { Field, ErrorMessage } from 'formik';
 
 type PropsInput = {
   placeholder?: string;
@@ -10,18 +10,22 @@ type PropsInput = {
   name: string;
   type: string;
   onChange?: (obj: any) => void;
+  width?: string;
 };
 
 class InputDefault extends React.Component<PropsInput> {
   render() {
     return (
-      <Field
-        type="text"
-        id="name"
-        name="name"
-        as={FormikInput}
-        {...this.props}
-      />
+      <>
+        <Field
+          type="text"
+          id="name"
+          name="name"
+          as={FormikInput}
+          {...this.props}
+        />
+        <ErrorMessage name={this.props.name} component={InputError} />
+      </>
     );
   }
 }

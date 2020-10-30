@@ -3,10 +3,13 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import { FormContextProvider } from './context/ModalFormProductsContext';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <FormContextProvider>
+      <App />
+    </FormContextProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

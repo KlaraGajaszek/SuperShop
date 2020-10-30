@@ -14,7 +14,6 @@ const Modal: FC<ModalProps> = (props) => {
         <ModalBox>
           <ModalContent>
             <CloseButton onClick={() => props.clsFunction()}>X</CloseButton>
-
             <ModalTitle>{props.content}</ModalTitle>
             {props.children}
           </ModalContent>
