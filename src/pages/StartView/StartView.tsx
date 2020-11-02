@@ -7,6 +7,7 @@ import ButtonWithIcon from '../../components/atoms/ButtonwithIcon/ButtonWithIcon
 import Modal from '../../components/moleculs/Modal/Modal';
 import { ModelFormContext } from '../../context/ModalFormProductsContext';
 import LogInForm from '../LogInForm/LogInForm';
+import SignInForm from '../SignInForm/SignInForm';
 
 export type ModelFormType = {
   modalVisible: boolean;
@@ -18,6 +19,9 @@ const StartView = () => {
     handleCloseFormModal,
     handleOpenLogInModal,
     handleCloseLogInModal,
+    handleOpenSignInModal,
+    handleCloseSignInModal,
+    modalSignIn,
     modalLogIn,
   } = useContext(ModelFormContext);
 
@@ -29,7 +33,9 @@ const StartView = () => {
         radius={'0px 0px 0px 0px'}
         margin={'5px 0px 0 0'}
         content={'Sign In'}
-        btnFunction={() => {}}
+        btnFunction={() => {
+          handleOpenSignInModal();
+        }}
         disable={false}
       />
       <ButtonWithIcon
@@ -72,6 +78,16 @@ const StartView = () => {
         }}
       >
         <LogInForm />
+      </Modal>
+
+      <Modal
+        content={'Signin'}
+        show={modalSignIn}
+        clsFunction={() => {
+          handleCloseSignInModal();
+        }}
+      >
+        <SignInForm />
       </Modal>
 
       <BoxProduct />

@@ -13,7 +13,7 @@ export const ModalBox = styled.div`
 `;
 
 export const ModalContent = styled.div`
-  padding: 5px 5px 20px 5px; /* Location of the box */
+  padding: 5px 5px 0px 5px; /* Location of the box */
   background-color: #062235;
   width: 380px;
   margin: auto;

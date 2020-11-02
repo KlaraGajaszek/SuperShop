@@ -1,13 +1,11 @@
-import styled from 'styled-components';
-
-export const InputDefault = styled.input<{ radius: string; margin: string }>`
-  border-radius: ${(props) => props.radius};
-  border-color: #888888;
-  border: none;
-  outline: none;
-  height: 35px;
-  width: 60%;
-  padding-left: 6px;
-  background-color: #dcdcdc;
-  margin: ${(props) => props.margin};
+import styled, { css } from 'styled-components';
+import { FiFile } from 'react-icons/fi';
+const FormikInput = styled.input`
+  padding: 2px 10px;
+  background-image: FiFile;
+  background-size: 20px;
+  background-repeat: no-repeat;
+  background-position: 95% 50%;
 `;
+
+export default FormikInput;

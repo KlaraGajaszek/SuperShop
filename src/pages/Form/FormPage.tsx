@@ -4,6 +4,7 @@ import { Formik, Form, FieldArray, FormikHelpers } from 'formik';
 import * as Yup from 'yup';
 
 import InputDefault from '../../components/atoms/Input/Input';
+import TagInput from '../../components/atoms/Input/Input';
 import { BoxWrapper, InputsBox, Tag, TagWrapper } from './FormPageStyles';
 import FormButton from '../../components/atoms/FormButton/FormButton';
 import ButtonWithIcon from '../../components/atoms/ButtonwithIcon/ButtonWithIcon';
@@ -100,7 +101,7 @@ const FormPage = () => {
                         (tag: string, index: number) => (
                           <TagWrapper key={index}>
                             <Tag>
-                              <InputDefault
+                              <TagInput
                                 name={`tags[${index}]`}
                                 placeholder={'tag'}
                                 radius={'5px 0 0 5px'}
@@ -108,7 +109,6 @@ const FormPage = () => {
                                 margin={'0px 0px 10px 0px'}
                               />
                             </Tag>
-
                             <ButtonWithIcon
                               type="button"
                               bgcolor={'#dc143c'}
@@ -118,7 +118,6 @@ const FormPage = () => {
                               btnFunction={() => arrayHelpers.push('')}
                               disable={false}
                             />
-
                             <ButtonWithIcon
                               type="button"
                               bgcolor={
@@ -165,7 +164,9 @@ const FormPage = () => {
                 content={'Submit'}
                 bgcolor={'#F92A70'}
                 radius={'5px'}
-                margin={'10px 0 10px 0'}
+                margin={'20px 0 20px 0'}
+                btnFunction={() => {}}
+                width={'150px'}
               />
             </BoxWrapper>
           </Form>

@@ -33,3 +33,6 @@ export const Tag = styled.div`
 export const TagButton = styled.div`
   width: 20%;
 `;
+export const InputError = styled.span`
+  color: red;
+`;
