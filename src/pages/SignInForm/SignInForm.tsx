@@ -11,17 +11,17 @@ import { FormWrapper, LabelWrapper } from './SignInFormStyles';
 import { ModelFormContext } from '../../context/ModalFormProductsContext';
 
 type InitialValue = {
-  name: string;
+  email: string;
   password: string;
 };
 
 const initialValues: InitialValue = {
-  name: '',
+  email: '',
   password: '',
 };
 
 const validationSchema = Yup.object().shape({
-  name: Yup.string().required().label('Name'),
+  email: Yup.string().required().email().label('Email'),
   password: Yup.string().required().label('Password'),
 });
 
@@ -30,7 +30,6 @@ const SignInForm = () => {
     handleOpenLogInModal,
     handleCloseLogInModal,
     handleOpenSignInModal,
-    modalSignIn,
     handleCloseSignInModal,
   } = useContext(ModelFormContext);
 
@@ -69,10 +68,10 @@ const SignInForm = () => {
           <Form>
             <FormWrapper>
               <LabelWrapper>
-                <Label label={'User Name'} icon={<FaUserAlt />} />
+                <Label label={'Email'} icon={<FaUserAlt />} />
                 <InputDefault
-                  name="name"
-                  placeholder={'name'}
+                  name="email"
+                  placeholder={'email'}
                   radius={'5px'}
                   margin={'5px 0px 15px 0px'}
                   type="input"
@@ -95,16 +94,16 @@ const SignInForm = () => {
                 bgcolor={'#F92A70'}
                 width={'60%'}
                 radius={'5px'}
-                margin={'10px 0 0 0 '}
+                margin={'10px 0 15px 0 '}
               />
             </FormWrapper>
             <FormButton
               type="submit"
-              content={'Log In'}
-              bgcolor={'black'}
+              content={'Login'}
+              bgcolor={'#DB7093'}
+              radius={'0px 0px 0 5px'}
+              margin={'10px 0 0px 0 '}
               width={'50%'}
-              radius={' 5px 0 0 5px'}
-              margin={'10px 0 0 0 '}
               btnFunction={() => {
                 handleOpenLogInModal();
                 handleCloseSignInModal();
@@ -112,9 +111,9 @@ const SignInForm = () => {
             />
             <FormButton
               type="submit"
-              content={'Create New account'}
-              bgcolor={'red'}
-              radius={'  0 5px 5px 0'}
+              content={'Sign in'}
+              bgcolor={'#d14775'}
+              radius={'0px 0px 5px 0px'}
               width={'50%'}
               btnFunction={() => {
                 handleCloseLogInModal();
