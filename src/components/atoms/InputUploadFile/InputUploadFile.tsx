@@ -1,23 +1,26 @@
-import React, { FC, ForwardRefRenderFunction, useRef } from 'react';
-import { TestDIV, Test2 } from './InputUploadFileStyles';
+import React, { FC, forwardRef, useRef } from 'react';
+import {
+  InputUploadWrapper,
+  Input,
+  Test,
+  FileTitle,
+  FileIcon,
+} from './InputUploadFileStyles';
 
 type PropsInput = {
   spanText: string | undefined;
   name: string;
   type: string;
-  // ref: RefObject<HTMLInputElement>;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
-const InputUploatFile: FC<PropsInput> = (props, ref) => {
-  const inputRef = useRef<HTMLInputElement | null>(ref);
+const InputUploatFile: FC<PropsInput> = forwardRef((props, ref) => {
+  const inputRef = useRef<HTMLInputElement | null>(null);
+
   return (
     <>
-      <TestDIV>
-        <span>
-          {props.spanText !== undefined ? 'Change File' : 'Choose File'}
-        </span>
-        <Test2
+      <InputUploadWrapper>
+        <Input
           name={props.name}
           type={props.type}
           ref={inputRef}
@@ -25,10 +28,21 @@ const InputUploatFile: FC<PropsInput> = (props, ref) => {
             props.onChange(e);
           }}
         />
-      </TestDIV>
-      <p>{inputRef.current?.files?.[0].name}</p>
+
+        <Test>
+          <FileIcon />
+          <div>
+            <FileTitle>
+              {props.spanText !== undefined
+                ? 'Change File'
+                : 'Choose Your Photo'}
+            </FileTitle>
+          </div>
+        </Test>
+      </InputUploadWrapper>
+      <FileTitle>{inputRef.current?.files?.[0]?.name}</FileTitle>
     </>
   );
-};
+});
 
 export default InputUploatFile;

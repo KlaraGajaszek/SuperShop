@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { FiFile } from 'react-icons/fi';
+
 const FormikInput = styled.input`
   padding: 2px 10px;
   background-image: FiFile;

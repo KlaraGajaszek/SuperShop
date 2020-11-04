@@ -1,7 +1,6 @@
 import React from 'react';
 
 import { Field } from 'formik';
-import { FiFile } from 'react-icons/fi';
 import FormikInput from './InputWithIconStyles';
 
 type PropsInput = {
