@@ -1,20 +1,16 @@
 import styled from 'styled-components';
 
-export const ButtonWithIconStyles = styled.button<{
-  radius: string;
-  margin: string;
-  height: string;
-  width: string;
-}>`
-  border-radius: ${(props) => props.radius};
-  float: none !important;
+export const Button = styled.button<{ margin: string }>`
+  background-color: transparent;
   border: none;
   outline: none;
   margin: ${(props) => props.margin};
-  cursor: pointer;
+  padding: 0;
+`;
+
+export const TestIcon = styled.i<{ height: string; width: string }>`
+  color: ${(props) => props.color};
   height: ${(props) => props.height};
   width: ${(props) => props.width};
-  color: #ffff;
-  background-color: transparent;
-  color: red;
+  cursor: pointer;
 `;
