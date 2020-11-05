@@ -10,11 +10,10 @@ type ModalProps = {
 const Modal: FC<ModalProps> = (props) => {
   return (
     <>
-      {props.show ? (
+      {props.show === true ? (
         <ModalBox>
           <ModalContent>
             <CloseButton onClick={() => props.clsFunction()}>X</CloseButton>
-
             <ModalTitle>{props.content}</ModalTitle>
             {props.children}
           </ModalContent>

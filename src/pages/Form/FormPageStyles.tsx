@@ -7,9 +7,9 @@ export const BoxWrapper = styled.div`
   flex-direction: column;
 `;
 
-export const FieldWrapperTag = styled.div`
+export const TagWrapper = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
 `;
 
 export const TagsBox = styled.div`
@@ -20,15 +20,19 @@ export const TagsBox = styled.div`
   flex-wrap: nowrap;
 `;
 
-export const ButtonTest = styled.button`
-  background-color: red;
-`;
-
 export const InputsBox = styled.div`
-  margin-left: 20%;
-  width: 50%;
   display: flex;
   flex-direction: column;
   justify-content: left;
   align-items: left;
+`;
+
+export const Tag = styled.div`
+  width: 100%;
+`;
+export const TagButton = styled.div`
+  width: 20%;
+`;
+export const InputError = styled.span`
+  color: red;
 `;

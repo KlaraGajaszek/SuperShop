@@ -1,35 +1,32 @@
-import React from 'react';
+import React, { FC } from 'react';
 
-import { ButtonWithIconStyles } from './ButtonWithIconStyles';
+import { TestIcon, Button } from './ButtonWithIconStyles';
 
 type PropsButtonWithIcon = {
-  bgcolor: string;
-  radius: string;
-  margin: string;
-  content: string;
-  type: string;
   disable: boolean;
+  type: string;
+  width: string;
+  height: string;
   btnFunction: () => void;
+  color: string;
+  childComp: any;
+  margin: string;
 };
 
-const ButtonWithIcon = ({
-  bgcolor,
-  radius,
-  margin,
-  content,
-  disable,
-  btnFunction = () => {},
-}: PropsButtonWithIcon) => {
+const ButtonWithIcon: FC<PropsButtonWithIcon> = (props) => {
   return (
-    <ButtonWithIconStyles
-      radius={radius}
-      disabled={disable}
-      margin={margin}
-      bgcolor={bgcolor}
-      onClick={() => btnFunction()}
+    <Button
+      disabled={props.disable}
+      onClick={() => props.btnFunction()}
+      margin={props.margin}
     >
-      {content}
-    </ButtonWithIconStyles>
+      <TestIcon
+        as={props.childComp}
+        width={props.width}
+        height={props.height}
+        color={props.color}
+      />
+    </Button>
   );
 };
 
