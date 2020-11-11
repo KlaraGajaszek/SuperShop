@@ -6,7 +6,7 @@ import Content from '../../atoms/Content/Content';
 import Tag from '../../atoms/Tag/Tag';
 import data from '../../../utils/data';
 import { PropsProduct } from '../../../models/Product';
-import { Product, Tags, ImgBox, DescriptionBox } from './BoxProductStyles';
+import { Card, Tags, ImageData, DescriptionBox } from './BoxProductStyles';
 
 class BoxProduct extends React.Component<RouteComponentProps, PropsProduct> {
   render() {
@@ -14,15 +14,15 @@ class BoxProduct extends React.Component<RouteComponentProps, PropsProduct> {
     return (
       <>
         {data.map((product, index) => (
-          <Product
+          <Card
             key={index}
             onClick={() => {
               history.push(`/products/${product.id}`);
             }}
           >
-            <ImgBox>
+            <ImageData>
               <ProductImg imageSrc={`${product.imageSrc}?${product.id}`} />
-            </ImgBox>
+            </ImageData>
             <DescriptionBox>
               <Content
                 name={product.name}
@@ -34,7 +34,7 @@ class BoxProduct extends React.Component<RouteComponentProps, PropsProduct> {
                 ))}
               </Tags>
             </DescriptionBox>
-          </Product>
+          </Card>
         ))}
       </>
     );

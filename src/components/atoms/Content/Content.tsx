@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { ContentWrapper, Title } from './ContentStyle';
+import { ContentWrapper, Title, Description } from './ContentStyle';
 
 type PropsContent = {
   description: string;
@@ -13,7 +13,7 @@ class Content extends React.Component<PropsContent> {
     return (
       <ContentWrapper>
         <Title>{name}</Title>
-        <span>{description}</span>
+        <Description>{description}</Description>
       </ContentWrapper>
     );
   }

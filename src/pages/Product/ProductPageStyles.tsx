@@ -4,6 +4,7 @@ export const BoxWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: rgba(0, 18, 30, 0.8);
 `;
 
 export const Box = styled.div`
@@ -21,12 +22,13 @@ export const Box = styled.div`
 export const ImgBox = styled.div`
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
 `;
 
 export const TitleBox = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: flex-start;
 `;
 
 export const Title = styled.span`

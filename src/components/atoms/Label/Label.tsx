@@ -5,6 +5,7 @@ import { LabelTitle, LabelBox, LabelIcon } from './LabelStyles';
 type LapelProps = {
   label: string;
   icon?: React.ReactNode;
+  color: string;
 };
 
 class Label extends React.Component<LapelProps> {
@@ -12,7 +13,7 @@ class Label extends React.Component<LapelProps> {
     return (
       <LabelBox>
         <LabelIcon> {this.props.icon}</LabelIcon>
-        <LabelTitle>{this.props.label}</LabelTitle>
+        <LabelTitle color={this.props.color}>{this.props.label}</LabelTitle>
       </LabelBox>
     );
   }
