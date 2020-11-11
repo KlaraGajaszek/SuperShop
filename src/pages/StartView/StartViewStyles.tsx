@@ -5,5 +5,8 @@ export const Box = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 70px 200px;
+  position: static;
+  margin: 150px 0 0 0;
+  overflow-x: hidden;
+  padding: 0 250px;
 `;

@@ -28,7 +28,6 @@ const InputUploatFile: FC<PropsInput> = forwardRef((props, ref) => {
             props.onChange(e);
           }}
         />
-
         <Test>
           <FileIcon />
           <div>

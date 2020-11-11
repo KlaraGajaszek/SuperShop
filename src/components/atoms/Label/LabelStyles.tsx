@@ -1,7 +1,10 @@
 import styled from 'styled-components';
 
-export const LabelTitle = styled.span`
-  color: #ffff;
+export const LabelTitle = styled.span<{
+  color: string;
+}>`
+  color: ${(props) => props.color};
+  font-weight: 600;
 `;
 
 export const LabelBox = styled.div`

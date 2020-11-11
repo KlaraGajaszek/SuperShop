@@ -6,12 +6,9 @@ export type ModelFormType = {
   modalSignIn: boolean;
   setModalVisible?: (modalVisible: boolean) => void;
   children?: React.ReactNode;
-  handleOpenFormModal: () => void;
-  handleCloseFormModal: () => void;
-  handleOpenLogInModal: () => void;
-  handleCloseLogInModal: () => void;
-  handleOpenSignInModal: () => void;
-  handleCloseSignInModal: () => void;
+  handleFormModal: (stateFormModal: boolean) => void;
+  handleLogInModal: (stateLogIn: boolean) => void;
+  handleSignInModal: (stateSignIn: boolean) => void;
 };
 
 export type LayoutProps = { children: React.ReactNode };
@@ -20,13 +17,9 @@ const ModelFormContext = createContext<ModelFormType>({
   modalVisible: false,
   modalLogIn: false,
   modalSignIn: false,
-  setModalVisible: () => {},
-  handleOpenFormModal: () => {},
-  handleCloseFormModal: () => {},
-  handleOpenLogInModal: () => {},
-  handleCloseLogInModal: () => {},
-  handleOpenSignInModal: () => {},
-  handleCloseSignInModal: () => {},
+  handleFormModal: (stateFormModal) => {},
+  handleLogInModal: (stateLogIn) => {},
+  handleSignInModal: (stateSignIn) => {},
 });
 
 const FormContextProvider = ({ children }: LayoutProps) => {
@@ -34,39 +27,16 @@ const FormContextProvider = ({ children }: LayoutProps) => {
   const [modalLogIn, setStateModalLogIn] = useState(false);
   const [modalSignIn, setStateModalSignIn] = useState(false);
 
-  const handleOpenFormModal = () => {
-    setStateModlVisible(true);
-  };
-  const handleCloseFormModal = () => {
-    setStateModlVisible(false);
-  };
-
-  const handleOpenLogInModal = () => {
-    setStateModalLogIn(true);
-  };
-  const handleCloseLogInModal = () => {
-    setStateModalLogIn(false);
-  };
-
-  const handleOpenSignInModal = () => {
-    setStateModalSignIn(true);
-  };
-  const handleCloseSignInModal = () => {
-    setStateModalSignIn(false);
-  };
-
   return (
     <ModelFormContext.Provider
       value={{
-        handleOpenFormModal,
+        handleFormModal: (stateFormModal) =>
+          setStateModlVisible(stateFormModal),
+        handleLogInModal: (stateLogIn) => setStateModalLogIn(stateLogIn),
+        handleSignInModal: (stateSignIn) => setStateModalSignIn(stateSignIn),
         modalVisible,
         modalLogIn,
         modalSignIn,
-        handleCloseFormModal,
-        handleOpenLogInModal,
-        handleCloseLogInModal,
-        handleOpenSignInModal,
-        handleCloseSignInModal,
       }}
     >
       {children}

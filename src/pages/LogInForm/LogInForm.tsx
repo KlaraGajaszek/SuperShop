@@ -7,7 +7,7 @@ import Label from '../../components/atoms/Label/Label';
 import FormButton from '../../components/atoms/FormButton/FormButton';
 import { FaUserAlt } from 'react-icons/fa';
 import { GiPadlock } from 'react-icons/gi';
-import { FormWrapper, LabelWrapper } from './LogInFormStyles';
+import { FormWrapper, LabelWrapper, Title } from './LogInFormStyles';
 import { ModelFormContext } from '../../context/ModalFormProductsContext';
 
 type InitialValue = {
@@ -26,12 +26,7 @@ const validationSchema = Yup.object().shape({
 });
 
 const LogInForm = () => {
-  const {
-    handleOpenLogInModal,
-    handleCloseLogInModal,
-    handleOpenSignInModal,
-    handleCloseSignInModal,
-  } = useContext(ModelFormContext);
+  const { handleLogInModal, handleSignInModal } = useContext(ModelFormContext);
 
   const onSubmit = (
     values: InitialValue,
@@ -67,23 +62,28 @@ const LogInForm = () => {
         return (
           <Form>
             <FormWrapper>
+              <Title>Login</Title>
               <LabelWrapper>
-                <Label label={'Email'} icon={<FaUserAlt />} />
+                <Label label={'Email'} icon={<FaUserAlt />} color={'black'} />
                 <InputDefault
                   name="email"
                   placeholder={'email'}
                   radius={'5px'}
-                  margin={'5px 0px 15px 0px'}
+                  margin={'15px 0px 15px 0px'}
                   type="input"
                 />
               </LabelWrapper>
               <LabelWrapper>
-                <Label label={'Password'} icon={<GiPadlock />} />
+                <Label
+                  label={'Password'}
+                  icon={<GiPadlock />}
+                  color={'black'}
+                />
                 <InputDefault
                   name="password"
                   placeholder={'password'}
                   radius={'5px'}
-                  margin={'5px 0px 15px 0px'}
+                  margin={'15px 0px 15px 0px'}
                   type="password"
                 />
               </LabelWrapper>
@@ -93,34 +93,10 @@ const LogInForm = () => {
                 content={'Submit'}
                 bgcolor={'#F92A70'}
                 radius={'5px'}
-                margin={'10px 0 0 0 '}
-                width={'100px'}
+                margin={'10px 0 15px 0 '}
+                width={'120px'}
               />
             </FormWrapper>
-            <FormButton
-              type="submit"
-              content={'Sign In'}
-              bgcolor={'#F92A70'}
-              radius={'0px'}
-              margin={'10px 0 0 0 '}
-              width={'50%'}
-              btnFunction={() => {
-                handleOpenLogInModal();
-                handleCloseSignInModal();
-              }}
-            />
-            <FormButton
-              type="submit"
-              content={'Create new account'}
-              bgcolor={'#F92A70'}
-              radius={'0px'}
-              width={'50%'}
-              btnFunction={() => {
-                handleCloseLogInModal();
-                handleOpenSignInModal();
-              }}
-              margin={'10px 0 0 0 '}
-            />
           </Form>
         );
       }}

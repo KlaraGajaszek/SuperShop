@@ -1,31 +1,38 @@
 import styled from 'styled-components';
 
-export const Product = styled.button`
-  display: grid;
+export const Card = styled.button`
   border: none;
   outline: none;
   cursor: pointer;
-  grid-template-columns: 40% 60%;
+  display: flex;
+  flex-direction: row;
   margin: 15px 0;
   padding: 15px 15px;
   border-radius: 8px;
   background-color: #fff;
-  background: linear-gradient(#f8f8f8, #fff);
-  box-shadow: 0 8px 16px -8px rgba(0, 0, 0, 0.4);
+  height: 250px;
+  width: 70vw;
+  box-shadow: 4px 4px 4px 4px rgba(0, 0, 0, 0.4);
 `;
 
 export const Tags = styled.div`
   flex-direction: row;
-  padding: 5px 45px;
+  padding: 5px 0px;
   display: flex;
-  background-color: #ffff;
+  bottom: 0;
 `;
 
-export const ImgBox = styled.div`
-  display: block;
-  grid-column: 1;
+export const ImageData = styled.div`
+  width: 40%;
+  height: 100%;
 `;
 
 export const DescriptionBox = styled.div`
-  grid-column: 2;
+  width: 60%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  align-content: space-around;
+  margin: 0 0 0 10px;
 `;

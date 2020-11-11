@@ -5,7 +5,6 @@ export const InputUploadWrapper = styled.div`
   display: flex;
   justify-items: center;
   align-items: center;
-  position: relative;
   border-radius: 5px;
   width: 80px;
   height: 80px;
@@ -20,7 +19,6 @@ export const Input = styled.input`
   position: absolute;
   opacity: 0;
   cursor: pointer;
-  height: 100%;
 `;
 export const FileTitle = styled.h1`
   color: #f92a70;
