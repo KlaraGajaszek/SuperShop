@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { Formik, Form, FormikHelpers } from 'formik';
 import * as Yup from 'yup';
 
@@ -8,7 +8,6 @@ import FormButton from '../../components/atoms/FormButton/FormButton';
 import { FaUserAlt } from 'react-icons/fa';
 import { GiPadlock } from 'react-icons/gi';
 import { FormWrapper, LabelWrapper, Title } from './LogInFormStyles';
-import { ModelFormContext } from '../../context/ModalFormProductsContext';
 
 type InitialValue = {
   email: string;
@@ -26,8 +25,6 @@ const validationSchema = Yup.object().shape({
 });
 
 const LogInForm = () => {
-  const { handleLogInModal, handleSignInModal } = useContext(ModelFormContext);
-
   const onSubmit = (
     values: InitialValue,
     onSubmitProps: FormikHelpers<InitialValue>
