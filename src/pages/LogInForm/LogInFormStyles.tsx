@@ -7,6 +7,7 @@ export const FormWrapper = styled.div`
   flex-direction: column;
   background-color: #f3f3f5;
   border-radius: 5px 0px 0px 5px;
+  height: calc(100vh-100px);
 `;
 
 export const LabelWrapper = styled.div`

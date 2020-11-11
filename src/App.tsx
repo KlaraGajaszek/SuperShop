@@ -7,7 +7,7 @@ import ProductPage from './pages/Product/ProductPage';
 import FormPage from './pages/Form/FormPage';
 import LogInForm from './pages/LogInForm/LogInForm';
 import SignInForm from './pages/SignInForm/SignInForm';
-import { AppWrapper, PageWrapper } from './AppStyles';
+import { AppWrapper, PageWrapper, AccountWrapper } from './AppStyles';
 
 const App: FC = () => {
   return (
@@ -17,8 +17,10 @@ const App: FC = () => {
         <PageWrapper>
           <Switch>
             <Route path="/account">
-              <LogInForm />
-              <SignInForm />
+              <AccountWrapper>
+                <LogInForm />
+                <SignInForm />
+              </AccountWrapper>
             </Route>
             <Route path="/products/form">
               <FormPage />

@@ -7,6 +7,7 @@ export const FormWrapper = styled.div`
   flex-direction: column;
   background-color: rgba(0, 18, 30, 0.4);
   border-radius: 0 5px 5px 0;
+  height: calc(100vh-100px);
 `;
 
 export const LabelWrapper = styled.div`
