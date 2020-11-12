@@ -61,7 +61,7 @@ const SignInForm = () => {
             <FormWrapper>
               <Title>Sign in</Title>
               <LabelWrapper>
-                <Label label={'Email'} icon={<FaUserAlt />} color={'#FFFF'} />
+                <Label label={'Email'} icon={<FaUserAlt />} color={'black'} />
                 <InputDefault
                   name="email"
                   placeholder={'email'}
@@ -74,7 +74,7 @@ const SignInForm = () => {
                 <Label
                   label={'Password'}
                   icon={<GiPadlock />}
-                  color={'#FFFF'}
+                  color={'black'}
                 />
                 <InputDefault
                   name="password"

@@ -10,8 +10,12 @@ export const PageWrapper = styled.div`
 export const AccountWrapper = styled.div`
   display: flex;
   flex-direction: row;
-  width: 100%;
-  height: 100%;
-  padding-top: 100px;
   overflow-y: hidden;
+`;
+export const ProductWrapper = styled.div`
+  display: flex;
+  height: 100vh;
+  justify-items: center;
+  align-items: center;
+  background-color: #f3f3f5;
 `;

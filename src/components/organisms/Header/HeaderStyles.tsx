@@ -39,8 +39,9 @@ export const NavbarContainerUl = styled.ul`
   flex-direction: row;
 `;
 
-export const Icon = styled.a`
-  background-color: red;
+export const Icon = styled.svg`
+  background-color: #f92a70;
   font-size: 25px;
   cursor: pointer;
+  color: red;
 `;
