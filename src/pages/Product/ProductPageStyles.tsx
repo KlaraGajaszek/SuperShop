@@ -2,16 +2,14 @@ import styled from 'styled-components';
 
 export const BoxWrapper = styled.div`
   display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: rgba(0, 18, 30, 0.8);
 `;
 
 export const Box = styled.div`
+  margin: 100px auto auto;
+  width: 80%;
+  height: 60%;
   display: flex;
   flex-direction: column;
-  margin: 15px 0;
-  width: 100%;
   padding: 15px 15px;
   border-radius: 8px;
   background-color: #fff;
@@ -28,7 +26,7 @@ export const ImgBox = styled.div`
 export const TitleBox = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
+  justify-content: space-between;
 `;
 
 export const Title = styled.span`

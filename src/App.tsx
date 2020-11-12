@@ -7,7 +7,12 @@ import ProductPage from './pages/Product/ProductPage';
 import FormPage from './pages/Form/FormPage';
 import LogInForm from './pages/LogInForm/LogInForm';
 import SignInForm from './pages/SignInForm/SignInForm';
-import { AppWrapper, PageWrapper, AccountWrapper } from './AppStyles';
+import {
+  AppWrapper,
+  PageWrapper,
+  AccountWrapper,
+  ProductWrapper,
+} from './AppStyles';
 
 const App: FC = () => {
   return (
@@ -26,8 +31,11 @@ const App: FC = () => {
               <FormPage />
             </Route>
             <Route path="/products/:id">
-              <ProductPage />
+              <ProductWrapper>
+                <ProductPage />
+              </ProductWrapper>
             </Route>
+
             <Route path="/">
               <StartView />
             </Route>

@@ -5,9 +5,10 @@ export const FormWrapper = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background-color: rgba(0, 18, 30, 0.4);
+  background-color: #ffffff;
   border-radius: 0 5px 5px 0;
-  height: calc(100vh-100px);
+  height: 100vh;
+  width: 50vw;
 `;
 
 export const LabelWrapper = styled.div`
@@ -15,7 +16,7 @@ export const LabelWrapper = styled.div`
 `;
 
 export const Title = styled.div`
-  color: #ffff;
+  color: black;
   margin-top: 15px;
   font-size: 30px;
   text-decoration: bold;
