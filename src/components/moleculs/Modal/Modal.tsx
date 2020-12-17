@@ -13,8 +13,10 @@ const Modal: FC<ModalProps> = (props) => {
       {props.show === true ? (
         <ModalBox>
           <ModalContent>
-            <CloseButton onClick={() => props.clsFunction()}>X</CloseButton>
-            <ModalTitle>{props.content}</ModalTitle>
+            <CloseButton onClick={() => props.clsFunction()}>
+              button
+            </CloseButton>
+            <ModalTitle data-testid="modalTitle">{props.content}</ModalTitle>
             {props.children}
           </ModalContent>
         </ModalBox>
