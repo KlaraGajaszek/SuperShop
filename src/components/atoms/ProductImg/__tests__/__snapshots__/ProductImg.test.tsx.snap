@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProductImg renders without crash 1`] = `
+<img
+  alt="Product Photo"
+  class="sc-bdnylx lohDXh"
+  data-testid="productImg"
+/>
+`;

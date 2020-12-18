@@ -1,7 +1,8 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import Tag from './Tag';
+import Tag from '../Tag';
 
+//dlaczego mamy renderer
 describe('Tag', () => {
   it('renders correctly', () => {
     const tag = renderer.create(<Tag title="title" />).toJSON();

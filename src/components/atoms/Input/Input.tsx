@@ -7,8 +7,8 @@ type PropsInput = {
   placeholder?: string;
   radius?: string;
   margin?: string;
-  name: string;
-  type: string;
+  name?: string;
+  type?: string;
   onChange?: (obj: any) => void;
   width?: string;
 };
@@ -24,7 +24,7 @@ class InputDefault extends React.Component<PropsInput> {
           as={FormikInput}
           {...this.props}
         />
-        <ErrorMessage name={this.props.name} component={InputError} />
+        {/* <ErrorMessage name={this.props.name} component={InputError} /> */}
       </FieldBox>
     );
   }

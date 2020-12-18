@@ -44,7 +44,6 @@ const FormPage = () => {
     values: InitialValue,
     onSubmitProps: FormikHelpers<InitialValue>
   ) => {
-    console.log(values);
     let bodyFormData = new FormData();
 
     bodyFormData.append('name', values.name);
@@ -87,7 +86,6 @@ const FormPage = () => {
       {(formProps) => {
         return (
           <Form>
-            {console.log('formProps', formProps)}
             <Wrapper>
               <BoxWrapper>
                 <InputsBox>

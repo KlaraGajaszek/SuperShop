@@ -8,7 +8,11 @@ class ProductImg extends React.Component<PropsProductImage> {
     const { imageSrc } = this.props;
     return (
       <>
-        <ProductImage src={imageSrc} alt="Product Photo" />
+        <ProductImage
+          src={imageSrc}
+          alt="Product Photo"
+          data-testid="productImg"
+        />
       </>
     );
   }
