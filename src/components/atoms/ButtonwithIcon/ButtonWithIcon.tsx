@@ -19,12 +19,14 @@ const ButtonWithIcon: FC<PropsButtonWithIcon> = (props) => {
       disabled={props.disable}
       onClick={() => props.btnFunction()}
       margin={props.margin}
+      data-testid="buttonId"
     >
       <TestIcon
         as={props.childComp}
         width={props.width}
         height={props.height}
         color={props.color}
+        data-testid="buttonIcon"
       />
     </Button>
   );

@@ -8,7 +8,11 @@ export const Button = styled.button<{ margin: string }>`
   padding: 0;
 `;
 
-export const TestIcon = styled.i<{ height: string; width: string }>`
+export const TestIcon = styled.i<{
+  height: string;
+  width: string;
+  color: string;
+}>`
   color: ${(props) => props.color};
   height: ${(props) => props.height};
   width: ${(props) => props.width};

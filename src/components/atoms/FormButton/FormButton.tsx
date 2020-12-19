@@ -15,6 +15,7 @@ type PropsButton = {
 const FormButton: FC<PropsButton> = (props) => {
   return (
     <ButtonWrapper
+      data-testid="buttonID"
       bgcolor={props.bgcolor}
       radius={props.radius}
       margin={props.margin}

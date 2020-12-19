@@ -87,7 +87,6 @@ const FormPage = () => {
       {(formProps) => {
         return (
           <Form>
-            {console.log('formProps', formProps)}
             <Wrapper>
               <BoxWrapper>
                 <InputsBox>

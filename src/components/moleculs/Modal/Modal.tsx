@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+
 import { ModalBox, ModalContent, CloseButton, ModalTitle } from './ModalStyles';
 
 type ModalProps = {
@@ -10,16 +11,14 @@ type ModalProps = {
 const Modal: FC<ModalProps> = (props) => {
   return (
     <>
-      {props.show === true ? (
-        <ModalBox>
+      {props.show === true && (
+        <ModalBox test-id="modalTitle">
           <ModalContent>
             <CloseButton onClick={() => props.clsFunction()}>X</CloseButton>
-            <ModalTitle>{props.content}</ModalTitle>
+            <ModalTitle data-testid="modalTitle">{props.content}</ModalTitle>
             {props.children}
           </ModalContent>
         </ModalBox>
-      ) : (
-        ''
       )}
     </>
   );

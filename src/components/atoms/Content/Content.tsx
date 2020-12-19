@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 
 import { ContentWrapper, Title, Description } from './ContentStyle';
 
@@ -6,17 +6,13 @@ type PropsContent = {
   description: string;
   name: string;
 };
-
-class Content extends React.Component<PropsContent> {
-  render() {
-    const { name, description } = this.props;
-    return (
-      <ContentWrapper>
-        <Title>{name}</Title>
-        <Description>{description}</Description>
-      </ContentWrapper>
-    );
-  }
-}
+const Content: FC<PropsContent> = ({ name, description }) => {
+  return (
+    <ContentWrapper data-testid="contentId">
+      <Title>{name}</Title>
+      <Description>{description}</Description>
+    </ContentWrapper>
+  );
+};
 
 export default Content;

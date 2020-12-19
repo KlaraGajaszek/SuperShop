@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 
 import { FormikInput, InputError, FieldBox } from './InputStyles';
 import { Field, ErrorMessage } from 'formik';
@@ -13,21 +13,19 @@ type PropsInput = {
   width?: string;
 };
 
-class InputDefault extends React.Component<PropsInput> {
-  render() {
-    return (
-      <FieldBox>
-        <Field
-          type="text"
-          id="name"
-          name="name"
-          as={FormikInput}
-          {...this.props}
-        />
-        <ErrorMessage name={this.props.name} component={InputError} />
-      </FieldBox>
-    );
-  }
-}
+const InputDefault: FC<PropsInput> = ({ name }) => {
+  return (
+    <FieldBox>
+      <Field
+        data-testid="fieldID"
+        type="text"
+        id="name"
+        name="name"
+        as={FormikInput}
+      />
+      <ErrorMessage name={name} component={InputError} />
+    </FieldBox>
+  );
+};
 
 export default InputDefault;
