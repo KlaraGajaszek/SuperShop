@@ -7,14 +7,15 @@ import renderer from 'react-test-renderer';
 
 import ProductImg from '../ProductImg';
 
-// jak zamokować src
+// jak zamokować src i sprawdzic że dokładnie to sie wyświetliło
 describe('ProductImg', () => {
   it('render without crash', () => {
     render(<ProductImg />);
   });
 
-  it('render with src', () => {
-    render(<ProductImg src={'./test'} />);
+  it('check if src render correct', () => {
+    const src = 'https://picsum.photos/1000/300';
+    render(<ProductImg src={src} />);
     const tag = screen.getByTestId('imageID');
     expect(tag).toBeInTheDocument();
   });
