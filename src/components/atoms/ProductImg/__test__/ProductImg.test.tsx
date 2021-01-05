@@ -13,10 +13,16 @@ describe('ProductImg', () => {
     render(<ProductImg />);
   });
 
+  // it('check if src render correct', () => {
+  //   const src = 'https://picsum.photos/1000/300';
+  //   render(<ProductImg src={src} />);
+  //   const tag = screen.getByTestId('imageID');
+  //   expect(tag).toBeInTheDocument();
+  // });
+
   it('check if src render correct', () => {
     const src = 'https://picsum.photos/1000/300';
-    render(<ProductImg src={src} />);
-    const tag = screen.getByTestId('imageID');
-    expect(tag).toBeInTheDocument();
+    const imageProduct = renderer.create(<ProductImg src={src} />).toJSON();
+    expect(imageProduct).toMatchSnapshot();
   });
 });

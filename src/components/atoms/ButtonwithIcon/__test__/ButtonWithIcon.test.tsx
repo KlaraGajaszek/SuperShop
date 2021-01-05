@@ -14,7 +14,7 @@ describe('ButtonWithIcon', () => {
   });
 
   // Błąd dlaczego wszystko przechodzi jak disable jest true
-  it('can not cick when disable is true', () => {
+  it('can not click when disable is true', () => {
     const mockCallback = jest.fn();
     render(
       <ButtonWithIcon disabled={true} btnFunction={mockCallback}>
@@ -27,6 +27,8 @@ describe('ButtonWithIcon', () => {
     expect(mockCallback).toHaveBeenCalled();
   });
 
+  //dlaczego robimy toJson
+
   it('allows to pass styles as props', () => {
     const button = renderer
       .create(<ButtonWithIcon margin="4" color="red" height="10" width="10" />)
@@ -36,7 +38,7 @@ describe('ButtonWithIcon', () => {
     expect(button).toHaveStyleRule('margin', '4');
     expect(button).toHaveStyleRule('background-color', 'transparent');
   });
-  // Jak zamokować ikonę
+  // Jak zamokować ikonę czy lepiejsnapshot ?
   it('render icon in button', () => {
     render(<ButtonWithIcon as={IoMdAddCircle} />);
     const buttonIcon = screen.getByTestId('buttonIcon');

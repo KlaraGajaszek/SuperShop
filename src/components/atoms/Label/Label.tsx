@@ -2,13 +2,13 @@ import React, { FC } from 'react';
 
 import { LabelTitle, LabelBox, LabelIcon } from './LabelStyles';
 
-type LapelProps = {
+type LabelProps = {
   label: string;
   icon?: React.ReactNode;
   color: string;
 };
 
-const Label: FC<LapelProps> = ({ icon, label, color }) => {
+const Label: FC<LabelProps> = ({ icon, label, color }) => {
   return (
     <LabelBox data-testid="labelID">
       <LabelIcon data-testid="labelIconID"> {icon}</LabelIcon>

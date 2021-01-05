@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProductImg check if src render correct 1`] = `
+.c0 {
+  height: 100%;
+  width: 100%;
+  border-radius: 8px;
+}
+
+<img
+  alt="Product Photo"
+  className="c0"
+  data-testid="imageID"
+/>
+`;
