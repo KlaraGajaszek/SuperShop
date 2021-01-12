@@ -9,7 +9,7 @@ import {
 } from './InputUploadFileStyles';
 
 type PropsInput = {
-  spanText: string | undefined;
+  spanText?: string | undefined;
   name: string;
   type: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
@@ -22,6 +22,7 @@ const InputUploatFile: FC<PropsInput> = forwardRef((props, ref) => {
     <>
       <InputUploadWrapper>
         <Input
+          data-testid="inputID"
           name={props.name}
           type={props.type}
           ref={inputRef}

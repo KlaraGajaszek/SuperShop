@@ -44,7 +44,6 @@ const FormPage = () => {
     values: InitialValue,
     onSubmitProps: FormikHelpers<InitialValue>
   ) => {
-    console.log(values);
     let bodyFormData = new FormData();
 
     bodyFormData.append('name', values.name);
@@ -160,7 +159,6 @@ const FormPage = () => {
                     margin={'0px 0px 20px 0px'}
                   />
                   <InputUploatFile
-                    spanText={inputRef.current?.files?.[0].name}
                     name={'image'}
                     type={'file'}
                     onChange={(e: React.ChangeEvent<HTMLInputElement>) => {

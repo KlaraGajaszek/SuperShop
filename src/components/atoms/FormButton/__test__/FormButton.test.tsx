@@ -11,7 +11,7 @@ import FormButton from '../FormButton';
 describe('Content', () => {
   it('render without crash', () => {
     render(<FormButton content="test" />);
-    const formWrapper = screen.getByTestId('buttonID');
+    const formWrapper = screen.getByText('test');
     expect(formWrapper).toBeInTheDocument();
   });
 

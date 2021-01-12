@@ -13,15 +13,16 @@ type PropsInput = {
   width?: string;
 };
 
-const InputDefault: FC<PropsInput> = ({ name }) => {
+const InputDefault: FC<PropsInput> = ({ name, onChange }) => {
   return (
     <FieldBox>
       <Field
         data-testid="fieldID"
         type="text"
         id="name"
-        name="name"
+        name={name}
         as={FormikInput}
+        onChange={onChange}
       />
       <ErrorMessage name={name} component={InputError} />
     </FieldBox>

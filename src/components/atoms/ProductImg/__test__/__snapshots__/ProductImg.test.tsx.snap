@@ -11,5 +11,6 @@ exports[`ProductImg check if src render correct 1`] = `
   alt="Product Photo"
   className="c0"
   data-testid="imageID"
+  src="https://picsum.photos/1000/300"
 />
 `;
