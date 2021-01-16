@@ -55,48 +55,42 @@ const SignInForm = () => {
       validateOnChange={true}
       validateOnBlur={true}
     >
-      {(props) => {
-        return (
-          <Form>
-            <FormWrapper>
-              <Title>Sign in</Title>
-              <LabelWrapper>
-                <Label label={'Email'} icon={<FaUserAlt />} color={'black'} />
-                <InputDefault
-                  name="email"
-                  placeholder={'email'}
-                  radius={'5px'}
-                  margin={'15px 0px 15px 0px'}
-                  type="input"
-                />
-              </LabelWrapper>
-              <LabelWrapper>
-                <Label
-                  label={'Password'}
-                  icon={<GiPadlock />}
-                  color={'black'}
-                />
-                <InputDefault
-                  name="password"
-                  placeholder={'password'}
-                  radius={'5px'}
-                  margin={'15px 0px 15px 0px'}
-                  type="password"
-                />
-              </LabelWrapper>
-              <FormButton
-                btnFunction={() => {}}
-                type="submit"
-                content={'Submit'}
-                bgcolor={'#F92A70'}
-                width={'120px'}
-                radius={'5px'}
-                margin={'10px 0 15px 0 '}
-              />
-            </FormWrapper>
-          </Form>
-        );
-      }}
+      return (
+      <Form>
+        <FormWrapper>
+          <Title>Sign in</Title>
+          <LabelWrapper>
+            <Label label={'Email'} icon={<FaUserAlt />} color={'black'} />
+            <InputDefault
+              name="email"
+              placeholder={'email'}
+              radius={'5px'}
+              margin={'15px 0px 15px 0px'}
+              type="input"
+            />
+          </LabelWrapper>
+          <LabelWrapper>
+            <Label label={'Password'} icon={<GiPadlock />} color={'black'} />
+            <InputDefault
+              name="password"
+              placeholder={'password'}
+              radius={'5px'}
+              margin={'15px 0px 15px 0px'}
+              type="password"
+            />
+          </LabelWrapper>
+          <FormButton
+            onClick={() => {}}
+            type="submit"
+            content={'Submit'}
+            bgcolor={'#F92A70'}
+            width={'120px'}
+            radius={'5px'}
+            margin={'10px 0 15px 0 '}
+          />
+        </FormWrapper>
+      </Form>
+      );
     </Formik>
   );
 };

@@ -7,7 +7,7 @@ type TagProps = {
 };
 
 const Tag: FC<TagProps> = ({ title }) => {
-  return <TagStyles>{title}</TagStyles>;
+  return <TagStyles data-testid="tag">{title}</TagStyles>;
 };
 
 export default Tag;

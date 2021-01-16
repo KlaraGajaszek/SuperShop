@@ -7,17 +7,21 @@ type PropsButtonWithIcon = {
   type: string;
   width: string;
   height: string;
-  btnFunction: () => void;
+  onClick: () => void;
   color: string;
   childComp: any;
   margin: string;
 };
 
-const ButtonWithIcon: FC<PropsButtonWithIcon> = (props) => {
+// zmienić btnFunction na onClick, TestIcon
+const ButtonWithIcon: FC<PropsButtonWithIcon> = ({
+  disable = false,
+  ...props
+}) => {
   return (
     <Button
-      disabled={props.disable}
-      onClick={() => props.btnFunction()}
+      disabled={disable}
+      onClick={props.onClick}
       margin={props.margin}
       data-testid="buttonId"
     >

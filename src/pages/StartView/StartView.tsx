@@ -2,6 +2,7 @@ import React from 'react';
 
 import BoxProduct from '../../components/moleculs/BoxProduct/BoxProduct';
 import { Box } from './StartViewStyles';
+import data from '../../utils/data';
 
 export type ModelFormType = {
   modalVisible: boolean;
@@ -9,7 +10,7 @@ export type ModelFormType = {
 const StartView = () => {
   return (
     <Box>
-      <BoxProduct />
+      <BoxProduct data={data} />
     </Box>
   );
 };

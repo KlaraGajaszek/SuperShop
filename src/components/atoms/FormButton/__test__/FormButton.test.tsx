@@ -1,13 +1,11 @@
 import React from 'react';
 import 'jest-styled-components';
-
 import { screen, render, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import renderer from 'react-test-renderer';
 
 import FormButton from '../FormButton';
 
-//content jest propsem czy można to jakoś inaczej  przetestować
 describe('Content', () => {
   it('render without crash', () => {
     render(<FormButton content="test" />);
@@ -22,9 +20,9 @@ describe('Content', () => {
     expect(formButton).toMatchSnapshot();
   });
 
-  it('function pass as btnFunction is called when user click on the button', () => {
+  it('function pass as onClick is called when user click on the button', () => {
     const mockCallback = jest.fn();
-    render(<FormButton btnFunction={mockCallback} />);
+    render(<FormButton onClick={mockCallback} />);
 
     userEvent.click(screen.getByTestId('buttonID'));
     expect(mockCallback).toHaveBeenCalled();

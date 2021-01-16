@@ -10,7 +10,9 @@ const Content: FC<PropsContent> = ({ name, description }) => {
   return (
     <ContentWrapper data-testid="contentId">
       <Title>{name}</Title>
-      <Description>{description}</Description>
+      <Description data-testid="contentDescriptionId">
+        {description}
+      </Description>
     </ContentWrapper>
   );
 };

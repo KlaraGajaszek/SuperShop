@@ -123,7 +123,7 @@ const FormPage = () => {
                                 width={'35px'}
                                 height={'35px'}
                                 childComp={IoMdAddCircle}
-                                btnFunction={() => arrayHelpers.push('')}
+                                onClick={() => arrayHelpers.push('')}
                                 disable={false}
                                 margin={'0 0 5px 15px'}
                               />
@@ -138,7 +138,7 @@ const FormPage = () => {
                                     ? 'gray'
                                     : '#D3D3D3'
                                 }
-                                btnFunction={() => arrayHelpers.remove(index)}
+                                onClick={() => arrayHelpers.remove(index)}
                                 disable={
                                   arrayHelpers.form.values.tags.length > 1
                                     ? false
@@ -176,7 +176,7 @@ const FormPage = () => {
                 bgcolor={'#F92A70'}
                 radius={'5px'}
                 margin={'0px auto 20px'}
-                btnFunction={() => {}}
+                onClick={() => {}}
                 width={'150px'}
               />
             </Wrapper>

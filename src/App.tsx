@@ -35,7 +35,6 @@ const App: FC = () => {
                 <ProductPage />
               </ProductWrapper>
             </Route>
-
             <Route path="/">
               <StartView />
             </Route>

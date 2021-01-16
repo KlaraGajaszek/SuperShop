@@ -9,7 +9,7 @@ type PropsButton = {
   margin: string;
   type: string;
   width: string;
-  btnFunction: () => void;
+  onClick: () => void;
 };
 
 const FormButton: FC<PropsButton> = (props) => {
@@ -20,7 +20,7 @@ const FormButton: FC<PropsButton> = (props) => {
       radius={props.radius}
       margin={props.margin}
       width={props.width}
-      onClick={() => props.btnFunction()}
+      onClick={props.onClick}
     >
       {props.content}
     </ButtonWrapper>
