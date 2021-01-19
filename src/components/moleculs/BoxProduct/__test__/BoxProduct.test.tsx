@@ -16,35 +16,32 @@ describe('BoxProduct', () => {
         <BoxProduct data={data} />
       </Router>
     );
-    const card = screen.getByTestId('1');
+    const card = screen.getByTestId('product1');
     userEvent.click(card);
     expect(history.location.pathname).toBe('/products/1');
   });
 
-  it('rendered products description does not the same as a in DB', () => {
+  it('render only 100 first chart as a product description and ...', () => {
     render(<BoxProduct data={data} />);
-    const renderedProductsDescription = screen
-      .getAllByTestId('contentId')
-      .map((product) => product.textContent);
+    const product = screen.getByTestId('product1');
 
-    const fakeProductsDescription = data.map((c) => c.description);
-
-    expect(renderedProductsDescription).not.toEqual(fakeProductsDescription);
+    const productContent = within(product).getByTestId('contentDescriptionId');
+    expect(productContent.textContent.length).toEqual(103);
   });
-
-  // it('render only 100 first chart as a product description and ...', () => {
-  //   render(<BoxProduct data={data} />);
-  //   const product = screen.getByTestId('1');
-
-  //   const productContent = within(product).getByTestId('contentDescriptionId');
-
-  //   console.log(productContent.children);
-  // });
 
   it('all  tags label render', () => {
     render(<BoxProduct data={data} />);
-    const product = screen.getByTestId('1');
+    const product = screen.getByTestId('product1');
     const productLabelsTags = within(product).getAllByTestId('tag');
     expect(productLabelsTags.length).toEqual(data[0].tags.length);
+  });
+
+  it('all products are render', () => {
+    render(<BoxProduct data={data} />);
+
+    const allProducts = screen.getAllByTestId('product', {
+      exact: false,
+    });
+    expect(allProducts.length).toEqual(data.length);
   });
 });

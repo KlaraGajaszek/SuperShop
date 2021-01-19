@@ -24,7 +24,7 @@ const BoxProduct = ({ data }: any) => {
     <>
       {data?.map((product: BoxProductTypesProps, index: number) => (
         <Card
-          data-testid={product.id}
+          data-testid={`product${product.id}`}
           key={product.id}
           onClick={() => {
             history.push(`/products/${product.id}`);
