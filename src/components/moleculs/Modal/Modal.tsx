@@ -1,27 +1,54 @@
 import React, { FC } from 'react';
 
-import { ModalBox, ModalContent, CloseButton, ModalTitle } from './ModalStyles';
+import {
+  ModalBox,
+  ModalContent,
+  CloseButton,
+  ModalTitle,
+  CloseIcon,
+  ModalFooter,
+} from './ModalStyles';
+import { FormButton } from '../../atoms/FormButton/FormButton';
 
 type ModalProps = {
-  content?: string;
-  show: boolean;
-  clsFunction: () => void;
+  isOpen: boolean;
+  onClose: () => void;
+  content: string;
+  onClick: () => void;
 };
 
-const Modal: FC<ModalProps> = (props) => {
+export const Modal: FC<ModalProps> = ({
+  children,
+  isOpen,
+  onClose,
+  onClick,
+  content,
+}) => {
+  console.log('modal');
   return (
     <>
-      {props.show === true && (
+      {isOpen === true && (
         <ModalBox test-id="modalTitle">
           <ModalContent>
-            <CloseButton onClick={() => props.clsFunction()}>X</CloseButton>
-            <ModalTitle data-testid="modalTitle">{props.content}</ModalTitle>
-            {props.children}
+            <CloseButton onClick={onClose}>
+              <CloseIcon />
+            </CloseButton>
+            <ModalTitle data-testid="modalTitle">{content}</ModalTitle>
+            {children}
+            <ModalFooter>
+              <FormButton
+                type="button"
+                width={'120px'}
+                onClick={onClick}
+                color="#4C4C4C"
+                content="ADD PRODUCT"
+                bgcolor="#FFFF"
+                radius="5px"
+              />
+            </ModalFooter>
           </ModalContent>
         </ModalBox>
       )}
     </>
   );
 };
-
-export default Modal;

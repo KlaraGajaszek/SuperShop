@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 
-import { FormikInput, InputError, FieldBox } from './InputStyles';
+import { FormikInput, InputError, FieldBox } from './DescriptionFieldStyles';
 import { Field, ErrorMessage } from 'formik';
 
 type PropsInput = {
@@ -13,7 +13,7 @@ type PropsInput = {
   width?: string;
 };
 
-export const InputDefault: FC<PropsInput> = ({
+export const DescriptionField: FC<PropsInput> = ({
   name,
   onChange,
   radius,
@@ -30,6 +30,8 @@ export const InputDefault: FC<PropsInput> = ({
         onChange={onChange}
         radius={radius}
         placeholder={placeholder}
+        cols="300"
+        rows="500"
       />
       <ErrorMessage name={name} component={InputError} />
     </FieldBox>

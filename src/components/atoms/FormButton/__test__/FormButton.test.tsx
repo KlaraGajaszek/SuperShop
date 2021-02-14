@@ -4,7 +4,7 @@ import { screen, render, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import renderer from 'react-test-renderer';
 
-import FormButton from '../FormButton';
+import { FormButton } from '../FormButton';
 
 describe('Content', () => {
   it('render without crash', () => {

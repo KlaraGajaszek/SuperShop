@@ -6,25 +6,33 @@ type PropsButton = {
   content: string;
   bgcolor: string;
   radius: string;
-  margin: string;
+  margin?: string;
   type: string;
   width: string;
-  onClick: () => void;
+  onClick: any;
+  color: string;
 };
 
-const FormButton: FC<PropsButton> = (props) => {
+export const FormButton: FC<PropsButton> = ({
+  bgcolor,
+  radius,
+  margin = '0px',
+  width,
+  onClick,
+  content,
+  color,
+}) => {
   return (
     <ButtonWrapper
       data-testid="buttonID"
-      bgcolor={props.bgcolor}
-      radius={props.radius}
-      margin={props.margin}
-      width={props.width}
-      onClick={props.onClick}
+      bgcolor={bgcolor}
+      radius={radius}
+      margin={margin}
+      width={width}
+      onClick={onClick}
+      color={color}
     >
-      {props.content}
+      {content}
     </ButtonWrapper>
   );
 };
-
-export default FormButton;

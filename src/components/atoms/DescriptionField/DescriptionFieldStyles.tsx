@@ -1,11 +1,10 @@
 import styled from 'styled-components';
 
-export const FormikInput = styled.input<{ radius: string; margin: string }>`
+export const FormikInput = styled.textarea<{ radius: string; margin: string }>`
   border-radius: ${(props) => props.radius};
   border: 2px solid #cec8c8;
   outline: none;
-  rows:"5";
-  height: 35px;
+  height: 10em;
   padding-left: 6px;
   margin: ${(props) => props.margin};
   width: 100%;

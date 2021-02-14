@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 
-import { TestIcon, Button } from './ButtonWithIconStyles';
+import { Icon, Button } from './ButtonWithIconStyles';
 
 type PropsButtonWithIcon = {
   disable: boolean;
@@ -13,7 +13,6 @@ type PropsButtonWithIcon = {
   margin: string;
 };
 
-// zmienić btnFunction na onClick, TestIcon
 const ButtonWithIcon: FC<PropsButtonWithIcon> = ({
   disable = false,
   ...props
@@ -25,7 +24,7 @@ const ButtonWithIcon: FC<PropsButtonWithIcon> = ({
       margin={props.margin}
       data-testid="buttonId"
     >
-      <TestIcon
+      <Icon
         as={props.childComp}
         width={props.width}
         height={props.height}

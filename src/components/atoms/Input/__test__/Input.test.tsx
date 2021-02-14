@@ -3,7 +3,7 @@ import { screen, render, fireEvent } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { Formik, Form, Field } from 'formik';
 
-import InputDefault from '../Input';
+import { InputDefault } from '../Input';
 
 const wrapper = ({ children }) => (
   <Formik

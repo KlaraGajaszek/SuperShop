@@ -1,42 +1,64 @@
 import styled from 'styled-components';
+import { Close } from '@styled-icons/evaicons-solid';
 
 export const ModalBox = styled.div`
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  padding-top: 100px; /* Location of the box */
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
   left: 0;
   top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  background-color: rgb(0, 18, 30); /* Fallback color */
-  background-color: rgba(0, 18, 30, 0.8); /* Black w/ opacity */
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
 `;
 
 export const ModalContent = styled.div`
-  background-color: #062235;
-  width: 380px;
+  background-color: #ffffff;
+  width: 30vw;
   margin: auto;
   border-radius: 5px;
   position: relative;
+  padding: 0 0 0 40px;
 `;
 
 export const CloseButton = styled.button`
-  width: 25px;
-  height: 25px;
-  background-color: #f82a70;
-  color: #ffff;
-  border-radius: 3px;
+  width: 40px;
+  height: 40px;
+  background-color: #f5f5f5;
+  border-radius: 50%;
   border: none;
   outline: none;
   cursor: pointer;
   float: right;
   margin: 10px;
+  padding: 0 1px 0 0;
+  :hover {
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px,
+      rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+    color: black;
+  }
+`;
+
+export const CloseIcon = styled(Close)`
+  width: 30px;
+  height: 30px;
+  color: #616060;
+  :hover {
+    color: black;
+  }
 `;
 
 export const ModalTitle = styled.p`
-  color: #ffff;
+  color: #4c4c4c;
   font-weight: bold;
-  font-size: 25px;
-  text-align: center;
-  padding-top: 10px;
+  font-size: 35px;
+  padding-top: 40px;
+  margin-left: 15px;
+`;
+
+export const ModalFooter = styled.div`
+  background-color: #f5f5f5;
+  margin-left: -40px;
+  border-radius: 0 0 5px 5px;
+  padding: 2% 0% 2% 80%; ;
 `;

@@ -1,7 +1,7 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { useHistory } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 
-import { ReactComponent as Supershop } from '../../../assests/SUPERSHOP.svg';
 import {
   HeaderBlock,
   LiItem,
@@ -10,9 +10,8 @@ import {
   Icon,
 } from './HeaderStyles';
 import { LinkHeader } from '../../../utils/data';
-import Modal from '../../moleculs/Modal/Modal';
-import FormPage from '../../../pages/Form/FormPage';
-import { ModelFormContext } from '../../../context/ModalFormProductsContext';
+import { showModal } from '../../../store/actions/setModalState';
+import { ModalName } from '../../../modals/modalNames';
 
 export type HeaderType = {
   link?: string;
@@ -20,8 +19,8 @@ export type HeaderType = {
 };
 
 const Header = () => {
-  const { modalVisible, handleFormModal } = useContext(ModelFormContext);
   let history = useHistory();
+  const dispatch = useDispatch();
 
   const handleClick = () => {
     history.push('/home');
@@ -29,17 +28,7 @@ const Header = () => {
 
   return (
     <>
-      <Modal
-        content={'Add product'}
-        show={modalVisible}
-        clsFunction={() => {
-          handleFormModal(false);
-        }}
-      >
-        <FormPage />
-      </Modal>
       <HeaderBlock>
-        <Icon as={Supershop} onClick={handleClick} />
         <NavbarContainerUl>
           {LinkHeader.map((link) => (
             <LiItem key={link.route}>
@@ -48,7 +37,11 @@ const Header = () => {
               ) : (
                 <AItem
                   onClick={() => {
-                    handleFormModal(true);
+                    dispatch(
+                      showModal(ModalName.ADD_PRODUCT_FORM, '', async () =>
+                        console.log('test')
+                      )
+                    );
                   }}
                 >
                   {link.title}

@@ -1,13 +1,12 @@
 import styled from 'styled-components';
 
 export const BoxWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  margin: 0 50px 0 50px;
+  display: grid;
+  grid-template-columns: 20% 80%;
 `;
 
 export const Wrapper = styled.div`
-  display: flex;
+  display: grid;
   flex-direction: column;
 `;
 
