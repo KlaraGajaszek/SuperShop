@@ -19,10 +19,12 @@ class ProductPage extends React.Component {
             <Title>{this.productData.price}</Title>
           </TitleBox>
           <div>{this.productData.description}</div>
-          <ImgBox>
-            {this.productData.tags.map((tag) => (
-              <Tag title={tag} />
-            ))}
+          <ImgBox className="min-h-screen justify-center flex">
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-1 md:grid-cols-3">
+              {this.productData.tags.map((tag) => (
+                <Tag title={tag} />
+              ))}
+            </div>
           </ImgBox>
         </Box>
       </BoxWrapper>

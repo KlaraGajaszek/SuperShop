@@ -1,13 +1,15 @@
 import React, { FC } from 'react';
 
-import { TagStyles } from './TagStyles';
-
 type TagProps = {
   title: string;
 };
 
 const Tag: FC<TagProps> = ({ title }) => {
-  return <TagStyles data-testid="tag">{title}</TagStyles>;
+  return (
+    <div className="bg-blue-200 rounded-md p-2" p-2 data-testid="tag">
+      {title}
+    </div>
+  );
 };
 
 export default Tag;

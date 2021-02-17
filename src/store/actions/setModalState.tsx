@@ -3,31 +3,24 @@ import { ModalName } from '../../modals/modalNames';
 const SHOW_MODAL = 'SHOW_MODAL';
 const HIDE_ALL = 'HIDE_ALL';
 
-type showModalTypes<T> = {
-  modal: string;
-  payload: T;
-  callback: () => void;
+type AddProductsType = {
+  modal: ModalName.ADD_PRODUCT_FORM;
+  payload: {
+    name: string;
+  };
 };
 
-export const showModal = (
-  modal: string,
-  payload: any = {},
-  callback: () => Promise<void> = async () => {}
-) => {
-  return (dispatch: any) => {
-    dispatch({
-      type: SHOW_MODAL,
-      modal,
-      payload,
-      callback,
-    });
+export const showModal = (modalConfig: AddProductsType) => {
+  const { modal, payload } = modalConfig;
+  return {
+    type: SHOW_MODAL,
+    modal,
+    payload,
   };
 };
 
 export const closeModal = () => {
-  return (dispatch: any) => {
-    dispatch({
-      type: HIDE_ALL,
-    });
+  return {
+    type: HIDE_ALL,
   };
 };

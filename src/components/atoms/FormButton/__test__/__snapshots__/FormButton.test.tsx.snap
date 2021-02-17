@@ -1,28 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Content all styles should be render 1`] = `
-.c0 {
-  border-radius: 5;
-  border: none;
-  outline: none;
-  font-weight: bold;
-  padding: 5px 10px;
-  background-color: red;
-  margin: 5;
-  width: 20;
-  cursor: pointer;
-  height: 30px;
-  color: black;
-}
-
-.c0:hover {
-  color: red;
-}
-
 <button
-  className="c0"
+  className="bg-black font-semibold text-white p-2 w-32 rounded-full hover:bg-indigo-50 hover:text-black focus:outline-none focus:ring shadow-lg hover:shadow-none transition-all duration-300"
   data-testid="buttonID"
-  radius="5"
-  width="20"
 />
 `;

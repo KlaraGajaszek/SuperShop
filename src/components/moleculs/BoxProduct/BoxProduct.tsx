@@ -1,11 +1,11 @@
+/* eslint-disable jsx-a11y/img-redundant-alt */
 import React, { FC } from 'react';
 
-import ProductImg from '../../atoms/ProductImg/ProductImg';
 import Content from '../../atoms/Content/Content';
 import { useHistory } from 'react-router-dom';
 import Tag from '../../atoms/Tag/Tag';
 
-import { Card, Tags, ImageData, DescriptionBox } from './BoxProductStyles';
+import { DescriptionBox } from './BoxProductStyles';
 
 type BoxProductTypesProps = {
   id: number;
@@ -23,28 +23,35 @@ const BoxProduct = ({ data }: any) => {
   return (
     <>
       {data?.map((product: BoxProductTypesProps, index: number) => (
-        <Card
+        <div
+          className="rounded bg-white border-gray-200 shadow-md overflow-hidden"
           data-testid={`product${product.id}`}
           key={product.id}
           onClick={() => {
             history.push(`/products/${product.id}`);
           }}
         >
-          <ImageData>
-            <ProductImg imageSrc={`${product.imageSrc}?${product.id}`} />
-          </ImageData>
+          <img
+            className="h-32 sm:h-48 w-full object-cover"
+            data-testid="imageID"
+            src={`${product.imageSrc}?${product.id}`}
+            alt="description of image"
+          />
+
           <DescriptionBox>
             <Content
               name={product.name}
               description={`${product.description.substring(0, 100)}...`}
             />
-            <Tags>
+            <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3">
               {product.tags.map((tag: string, index: number) => (
-                <Tag key={index} title={tag} />
+                <div className=" top-0 ml-2 mt-2 p-2 bg-secondary-100 text-secondary-200 text-xs uppercase font-bold rounded-full indigoss">
+                  <Tag key={index} title={tag} />
+                </div>
               ))}
-            </Tags>
+            </div>
           </DescriptionBox>
-        </Card>
+        </div>
       ))}
     </>
   );
