@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import { Formik, Form, FormikHelpers, useFormikContext } from 'formik';
+import { Formik, Form, FormikValues } from 'formik';
 import * as Yup from 'yup';
 import { FormTemplate } from './FormTemplate';
 
@@ -28,10 +28,9 @@ const validationSchema = Yup.object().shape({
   price: Yup.string().label('Price'),
 });
 
-export const FormPage = () => {
-  const formik: any = useFormikContext();
-  const onSubmit = (values: any, onSubmitProps: FormikHelpers<any>) => {
-    console.log('values', values);
+export const FormPage = ({children} : any) => {
+  // const handleSubmit = (values: any, onSubmitProps: FormikHelpers<any>) => {
+  //   onSubmit(values)
 
     // let bodyFormData = new FormData();
 
@@ -62,17 +61,19 @@ export const FormPage = () => {
     //   .catch(function (response) {
     //     //handle error
     //   });
-  };
+  // };
 
   return (
     <Formik
       initialValues={initialValues}
       validationSchema={validationSchema}
-      onSubmit={onSubmit}
+      onSubmit={(values: any) => console.log('values', values)}
     >
-      <form >
-        <FormTemplate />
-      </form>
+      <Form >
+        {children(
+          <FormTemplate />
+        )}
+      </Form>
     </Formik>
   );
 };

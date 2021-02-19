@@ -13,18 +13,18 @@ describe('Content', () => {
     expect(formWrapper).toBeInTheDocument();
   });
 
-  it('all styles should be render', () => {
-    const formButton = renderer
-      .create(<FormButton bgcolor="red" radius="5" margin="5" width="20" />)
-      .toJSON();
-    expect(formButton).toMatchSnapshot();
-  });
+  // it('all styles should be render', () => {
+  //   const formButton = renderer
+  //     .create(<FormButton bgcolor="red" radius="5" margin="5" width="20" />)
+  //     .toJSON();
+  //   expect(formButton).toMatchSnapshot();
+  // });
 
-  it('function pass as onClick is called when user click on the button', () => {
-    const mockCallback = jest.fn();
-    render(<FormButton onClick={mockCallback} />);
+  // it('function pass as onClick is called when user click on the button', () => {
+  //   const mockCallback = jest.fn();
+  //   render(<FormButton onClick={mockCallback} />);
 
-    userEvent.click(screen.getByTestId('buttonID'));
-    expect(mockCallback).toHaveBeenCalled();
-  });
+  //   userEvent.click(screen.getByTestId('buttonID'));
+  //   expect(mockCallback).toHaveBeenCalled();
+  // });
 });
