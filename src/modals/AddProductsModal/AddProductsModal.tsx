@@ -9,17 +9,20 @@ export const AddProductsModal = () => {
   const dispatch = useDispatch();
 
   return (
-    <Modal
-      content={'Add product'}
-      isOpen={true}
-      onClose={() => {
-        dispatch(closeModal());
-      }}
-      onClick={() => {
-        console.log('fff');
-      }}
-    >
-      <FormPage />
-    </Modal>
+    <FormPage>
+      {
+        (form: any) => (
+          <Modal
+            content={'Add product'}
+            isOpen={true}
+            onClose={() => {
+              dispatch(closeModal());
+            }}
+          >
+            {form}
+          </Modal>
+        )
+      }
+    </FormPage> 
   );
 };

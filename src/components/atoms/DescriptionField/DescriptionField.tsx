@@ -27,7 +27,6 @@ export const DescriptionField: FC<PropsInput> = ({
         id="name"
         name={name}
         as={FormikInput}
-        onChange={onChange}
         radius={radius}
         placeholder={placeholder}
         cols="300"

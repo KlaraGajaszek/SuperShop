@@ -45,8 +45,8 @@ const BoxProduct = ({ data }: any) => {
             />
             <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3">
               {product.tags.map((tag: string, index: number) => (
-                <div className=" top-0 ml-2 mt-2 p-2 bg-secondary-100 text-secondary-200 text-xs uppercase font-bold rounded-full indigoss">
-                  <Tag key={index} title={tag} />
+                <div key={index} className=" top-0 ml-2 mt-2 p-2 bg-secondary-100 text-secondary-200 text-xs uppercase font-bold rounded-full indigoss">
+                  <Tag  title={tag} />
                 </div>
               ))}
             </div>

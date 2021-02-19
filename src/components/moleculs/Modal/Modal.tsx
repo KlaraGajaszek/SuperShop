@@ -12,7 +12,7 @@ type ModalProps = {
   isOpen: boolean;
   onClose: () => void;
   content: string;
-  onClick: () => void;
+  onClick?: () => void;
 };
 
 export const Modal: FC<ModalProps> = ({
@@ -45,8 +45,6 @@ export const Modal: FC<ModalProps> = ({
                 {children}
                 <footer className="flex justify-end p-2">
                   <FormButton
-                    type="button"
-                    onClick={onClick}
                     content="ADD PRODUCT"
                   />
                 </footer>

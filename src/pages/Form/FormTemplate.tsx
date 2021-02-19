@@ -1,5 +1,4 @@
 import React from 'react';
-import { useFormikContext } from 'formik';
 
 import {
   Form,
@@ -13,7 +12,6 @@ import { FileUpload } from '../../components/atoms/FileUpload/FileUpload';
 
 export const FormTemplate = () => {
   const updateUploadedFiles = (files: any) => console.log(files);
-  // const formik: any = useFormikContext();
 
   return (
     <Form>
@@ -27,9 +25,6 @@ export const FormTemplate = () => {
           <InputDefault
             type="text"
             name="name"
-            // onChange={(name: string, value: string) =>
-            //   formik.setFieldValue(name, value)
-            // }
             radius="5px"
             placeholder="Product Name"
           />
@@ -41,9 +36,6 @@ export const FormTemplate = () => {
           <DescriptionField
             type="area"
             name="description"
-            // onChange={(name: string, value: string) =>
-            //   formik.setFieldValue(name, value)
-            // }
             radius="5px"
             placeholder="Product Description"
           />

@@ -24,10 +24,10 @@ export const InputDefault: FC<PropsInput> = ({
       <Field
         data-testid="fieldID"
         type="text"
-        id="name"
+        id={name}
         name={name}
         as={FormikInput}
-        onChange={onChange}
+        // onChange={onChange}
         radius={radius}
         placeholder={placeholder}
       />
