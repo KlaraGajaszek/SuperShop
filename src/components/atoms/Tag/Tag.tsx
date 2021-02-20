@@ -6,7 +6,7 @@ type TagProps = {
 
 const Tag: FC<TagProps> = ({ title }) => {
   return (
-    <div className="bg-blue-200 rounded-md p-2" p-2 data-testid="tag">
+    <div className="bg-blue-200 rounded-md p-2" data-testid="tag">
       {title}
     </div>
   );

@@ -12,7 +12,7 @@ type ModalProps = {
   isOpen: boolean;
   onClose: () => void;
   content: string;
-  onClick: () => void;
+  onClick?: () => void;
 };
 
 export const Modal: FC<ModalProps> = ({
@@ -26,32 +26,23 @@ export const Modal: FC<ModalProps> = ({
     <>
       {isOpen === true && (
         <div
-          className="fixed inset-0 w-full h-full z-20 bg-black bg-opacity-50 duration-300 overflow-y-auto"
+          className="fixed inset-0 w-full shadow-md rounded px-8 pb-8 mb-4 flex flex-col my-2 h-full z-20 bg-black bg-opacity-50 duration-300 overflow-y-auto"
           x-show="showModal1"
           test-id="modalTitle"
         >
-          <div className="relative sm:w-3/4 md:w-1/2 lg:w-1/3 mx-2 sm:mx-auto my-10 opacity-100">
-            <div
-              className="relative bg-white shadow-lg rounded-md text-gray-900 z-20"
-              x-show="showModal1"
-            >
-              <ModalContent>
-                <CloseButton onClick={onClose}>
-                  <CloseIcon />
-                </CloseButton>
-                <ModalTitle className="mb-5" data-testid="modalTitle">
-                  {content}
-                </ModalTitle>
-                {children}
-                <footer className="flex justify-end p-2">
-                  <FormButton
-                    type="button"
-                    onClick={onClick}
-                    content="ADD PRODUCT"
-                  />
-                </footer>
-              </ModalContent>
-            </div>
+          <div className="md:flex mb-6">
+            <ModalContent>
+              <CloseButton onClick={onClose}>
+                <CloseIcon />
+              </CloseButton>
+              <ModalTitle className="mb-5" data-testid="modalTitle">
+                {content}
+              </ModalTitle>
+              {children}
+              <footer className="flex justify-end p-2">
+                <FormButton content="ADD PRODUCT" />
+              </footer>
+            </ModalContent>
           </div>
         </div>
       )}

@@ -14,11 +14,8 @@ export const ModalBox = styled.div`
 
 export const ModalContent = styled.div`
   background-color: #ffffff;
-  width: 30vw;
   margin: auto;
   border-radius: 5px;
-  position: relative;
-  padding: 0 0 0 40px;
 `;
 
 export const CloseButton = styled.button`

@@ -2,7 +2,8 @@
 
 exports[`Content all styles should be render 1`] = `
 <button
-  className="bg-black font-semibold text-white p-2 w-32 rounded-full hover:bg-indigo-50 hover:text-black focus:outline-none focus:ring shadow-lg hover:shadow-none transition-all duration-300"
+  className="rounded-md bg-black text-yellow-100 font-semibold  focus:outline-none p-3 shadow-lg "
   data-testid="buttonID"
+  type="submit"
 />
 `;

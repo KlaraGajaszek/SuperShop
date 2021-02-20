@@ -53,7 +53,6 @@ export const UploadFileBtn = styled.button`
   cursor: pointer;
   font-size: 1rem;
   line-height: 1;
-  padding: 1.1em 2.8em;
   text-align: center;
   text-transform: uppercase;
   font-weight: 700;
@@ -64,7 +63,8 @@ export const UploadFileBtn = styled.button`
   z-index: 1;
   transition: color 250ms ease-in-out;
   font-family: 'Open Sans', sans-serif;
-  width: 45%;
+  width: 80%;
+  height: 70px;
   display: flex;
   align-items: center;
   padding-right: 0;
@@ -100,7 +100,7 @@ export const UploadFileBtn = styled.button`
   }
 
   @media only screen and (max-width: 500px) {
-    width: 70%;
+    width: 100%;
   }
 
   @media only screen and (max-width: 350px) {
@@ -182,7 +182,7 @@ export const RemoveFileIcon = styled.button`
 export const PreviewContainer = styled.section`
   padding: 0.25rem;
   width: 20%;
-  height: 120px;
+  /* height: 120px; */
   border-radius: 6px;
   box-sizing: border-box;
 

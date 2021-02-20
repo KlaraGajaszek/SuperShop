@@ -1,65 +1,55 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useFormikContext } from 'formik';
 
-import {
-  Form,
-  LeftContentForm,
-  RightContentForm,
-  SubTitleForm,
-} from './FormTemplateStyles';
+import { Form } from './FormTemplateStyles';
 import { InputDefault } from '../../components/atoms/Input/Input';
 import { DescriptionField } from '../../components/atoms/DescriptionField/DescriptionField';
 import { FileUpload } from '../../components/atoms/FileUpload/FileUpload';
 
 export const FormTemplate = () => {
-  const updateUploadedFiles = (files: any) => console.log(files);
-  // const formik: any = useFormikContext();
+  const [files, setFiles] = useState<any>([]);
 
   return (
-    <Form>
-      <SubTitleForm>
-        <LeftContentForm>Activation</LeftContentForm>
-        <RightContentForm>User Name</RightContentForm>
-      </SubTitleForm>
-      <SubTitleForm>
-        <LeftContentForm>Product Name</LeftContentForm>
-        <RightContentForm>
+    <Form className="px-8">
+      <div className=" flex flex-row  justify-around ">
+        <div className="mr-5 mb-5">
+          <label className="block uppercase tracking-wide text-grey-darker text-sm font-bold mb-2">
+            Product Name
+          </label>
           <InputDefault
             type="text"
             name="name"
-            // onChange={(name: string, value: string) =>
-            //   formik.setFieldValue(name, value)
-            // }
             radius="5px"
             placeholder="Product Name"
           />
-        </RightContentForm>
-      </SubTitleForm>
-      <SubTitleForm>
-        <LeftContentForm>Product Description</LeftContentForm>
-        <RightContentForm>
-          <DescriptionField
-            type="area"
-            name="description"
-            // onChange={(name: string, value: string) =>
-            //   formik.setFieldValue(name, value)
-            // }
+        </div>
+        <div>
+          <label className="block uppercase tracking-wide text-grey-darker text-sm font-bold mb-2">
+            Price
+          </label>
+          <InputDefault
+            type="text"
+            name="name"
             radius="5px"
-            placeholder="Product Description"
+            placeholder="Product Name"
           />
-        </RightContentForm>
-      </SubTitleForm>
-      <SubTitleForm>
-        <LeftContentForm>Product Image</LeftContentForm>
-        <RightContentForm>
-          <FileUpload
-            accept=".jpg,.png,.jpeg"
-            label=""
-            multiple
-            updateFilesCb={updateUploadedFiles}
-          />
-        </RightContentForm>
-      </SubTitleForm>
+        </div>
+      </div>
+      <div className="md:w-1/1 ">
+        <label className="block uppercase tracking-wide text-grey-darker text-sm font-bold mb-2">
+          Product Description
+        </label>
+        <DescriptionField
+          type="area"
+          name="description"
+          radius="5px"
+          placeholder="Product Description"
+        />
+      </div>
+      <label className="block uppercase tracking-wide text-grey-darker text-sm font-bold mb-2">
+        Add images
+      </label>
+      <FileUpload GetFiles={(file) => setFiles([...files, file])} />
     </Form>
   );
 };

@@ -1,130 +1,53 @@
-import React, { FC, useRef, useState } from 'react';
-
-import {
-  FileUploadContainer,
-  FormField,
-  UploadFileBtn,
-  FilePreviewContainer,
-  ImagePreview,
-  PreviewContainer,
-  PreviewList,
-  FileMetaData,
-  RemoveFileIcon,
-} from './FileUploadStyles';
+import React, { FC, useState } from 'react';
 
 type FileUploadPropsType = {
-  label: string;
-  updateFilesCb: (x:any)=>void;
-  maxFileSizeInBytes: number;
-  otherProps: any;
+  GetFiles: (file: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
-const DEFAULT_MAX_FILE_SIZE_IN_BYTES = 500000;
-const KILO_BYTES_PER_BYTE = 1000;
-const convertBytesToKB = (bytes: number) =>
-  Math.round(bytes / KILO_BYTES_PER_BYTE);
+export const FileUpload: FC<FileUploadPropsType> = ({ GetFiles }) => {
+  const [highlighted, setHighlighted] = useState<boolean>(false);
 
-    const convertNestedObjectToArray = (nestedObj: any) =>
-    Object.keys(nestedObj).map((key) => nestedObj[key]);
-
-
-
-export const FileUpload: FC<any> = (
-  {
-    label,
-    updateFilesCb,
-    maxFileSizeInBytes = DEFAULT_MAX_FILE_SIZE_IN_BYTES,
-    ...otherProps
-  },
-  ref
-) => {
-  const fileInputField = useRef<any>(null);
-  const [files, setFiles] = useState<any>({});
-
-  const callUpdateFilesCb = (files:any) => {
-    const filesAsArray = convertNestedObjectToArray(files);
-    updateFilesCb(filesAsArray);
+  const onDragEnter = () => {
+    setHighlighted(true);
   };
 
-
-  const addNewFiles = (newFiles: any) => {
-    for (let file of newFiles) {
-      if (file.size <= maxFileSizeInBytes) {
-        if (!otherProps.multiple) {
-          return { file };
-        }
-        files[file.name] = file;
-      }
-    }
-    return { ...files };
+  const onDragLeave = () => {
+    setHighlighted(false);
   };
 
-  const handleNewFileUpload = (e: any) => {
-    const { files: newFiles } = e.target;
-    if (newFiles.length) {
-      let updatedFiles = addNewFiles(newFiles);
-      setFiles(updatedFiles);
-      callUpdateFilesCb(updatedFiles);
-    }
+  const onDragOver = (e: React.DragEvent<HTMLDivElement>): void => {
+    e.preventDefault();
   };
 
-  const handleUploadBtnClick = () => {
-    fileInputField?.current.click();
-  };
-
-  const removeFile = (fileName: any) => {
-    delete files[fileName];
-    setFiles({ ...files });
-    callUpdateFilesCb({ ...files });
+  const onDrop = (e: React.DragEvent<HTMLDivElement>): void => {
+    e.preventDefault();
+    setHighlighted(false);
+    Array.from(e.dataTransfer.files)
+      .filter((file: any) => {
+        return (
+          file.type === 'image/png' ||
+          file.type === 'image/jpg' ||
+          file.type === 'image/jpeg'
+        );
+      })
+      .forEach((file: any) => GetFiles(file));
   };
 
   return (
     <>
-      <FileUploadContainer>
-        <UploadFileBtn type="button" onClick={handleUploadBtnClick}>
-          <i className="fas fa-file-upload" />
-          <span> Upload {otherProps.multiple ? 'files' : 'a file'}</span>
-        </UploadFileBtn>
-        <FormField
-          type="file"
-          ref={fileInputField}
-          onChange={handleNewFileUpload}
-          title=""
-          value=""
-          {...otherProps}
-        />
-      </FileUploadContainer>
-      <FilePreviewContainer>
-        <span>To Upload</span>
-        <PreviewList>
-          {Object.keys(files).map((fileName: any, index: any) => {
-            let file: any = files[fileName];
-            let isImageFile: any = file.type.split('/')[0] === 'image';
-            return (
-              <PreviewContainer key={fileName}>
-                <div>
-                  {isImageFile && (
-                    <ImagePreview
-                      src={URL.createObjectURL(file)}
-                      alt={`file preview ${index}`}
-                    />
-                  )}
-                  <FileMetaData isImageFile={isImageFile}>
-                    <span>{file.name}</span>
-                    <aside>
-                      <span>{convertBytesToKB(file?.size)} kb</span>
-                      <RemoveFileIcon
-                        className="fas fa-trash-alt"
-                        onClick={() => removeFile(fileName)}
-                      />
-                    </aside>
-                  </FileMetaData>
-                </div>
-              </PreviewContainer>
-            );
-          })}
-        </PreviewList>
-      </FilePreviewContainer>
+      <div
+        className={`cursor-pointer appearance-none block w-full bg-grey text-grey-darker border border-grey-lighter rounded py-3 px-4 ${
+          highlighted ? 'border-green-600 bg-green-100' : 'bg-grey'
+        }`}
+        onDragEnter={onDragEnter}
+        onDragLeave={onDragLeave}
+        onDragOver={(e: React.DragEvent<HTMLDivElement>) => {
+          onDragOver(e);
+        }}
+        onDrop={(e) => onDrop(e)}
+      >
+        DRAG AND DROP YOUR PHOTO
+      </div>
     </>
   );
 };

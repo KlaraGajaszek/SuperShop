@@ -1,9 +1,6 @@
 import React from 'react';
 import { screen, render, within } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
 import 'jest-styled-components';
-
-import renderer from 'react-test-renderer';
 
 import Content from '../Content';
 

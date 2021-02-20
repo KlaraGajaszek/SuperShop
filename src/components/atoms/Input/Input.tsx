@@ -13,6 +13,12 @@ type PropsInput = {
   width?: string;
 };
 
+export const CustomInput: any = () => {
+  return (
+    <input className="appearance-none block w-full bg-grey text-grey-darker border border-grey-lighter rounded py-3 px-4" />
+  );
+};
+
 export const InputDefault: FC<PropsInput> = ({
   name,
   onChange,
@@ -24,10 +30,10 @@ export const InputDefault: FC<PropsInput> = ({
       <Field
         data-testid="fieldID"
         type="text"
-        id="name"
+        id={name}
         name={name}
-        as={FormikInput}
-        onChange={onChange}
+        as={CustomInput}
+        // onChange={onChange}
         radius={radius}
         placeholder={placeholder}
       />
