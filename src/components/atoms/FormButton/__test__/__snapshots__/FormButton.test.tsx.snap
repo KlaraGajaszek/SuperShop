@@ -1,9 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`Content all styles should be render 1`] = `
-<button
-  className="rounded-md bg-black text-yellow-100 font-semibold  focus:outline-none p-3 shadow-lg "
-  data-testid="buttonID"
-  type="submit"
-/>
-`;

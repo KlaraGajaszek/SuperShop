@@ -3,25 +3,26 @@ import React, { FC } from 'react';
 import { Icon, Button } from './ButtonWithIconStyles';
 
 type PropsButtonWithIcon = {
-  disable: boolean;
-  type: string;
+  disable?: boolean;
+  type?: string;
   width: string;
   height: string;
   onClick: () => void;
   color: string;
   childComp: any;
-  margin: string;
+  styles?: string;
 };
 
 const ButtonWithIcon: FC<PropsButtonWithIcon> = ({
   disable = false,
+  styles,
   ...props
 }) => {
   return (
     <Button
+      className={styles}
       disabled={disable}
       onClick={props.onClick}
-      margin={props.margin}
       data-testid="buttonId"
     >
       <Icon

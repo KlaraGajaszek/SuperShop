@@ -12,9 +12,9 @@ describe('Modal', () => {
         foo
       </Modal>
     );
-
-    userEvent.click(screen.getByTestId('buttonID'));
-    // expect(mockCallback).toHaveBeenCalled();
+    const closeButton = screen.getByTestId('closeButton');
+    userEvent.click(closeButton);
+    expect(mockCallback).toHaveBeenCalled();
   });
 
   it('renders modal content when show is false', () => {
