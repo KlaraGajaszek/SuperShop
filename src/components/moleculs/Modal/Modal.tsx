@@ -13,6 +13,7 @@ type ModalProps = {
   onClose: () => void;
   content: string;
   onClick?: () => void;
+  buttonTitle: string;
 };
 
 export const Modal: FC<ModalProps> = ({
@@ -21,18 +22,19 @@ export const Modal: FC<ModalProps> = ({
   onClose,
   onClick,
   content,
+  buttonTitle,
 }) => {
   return (
     <>
       {isOpen === true && (
         <div
-          className="fixed inset-0 w-full shadow-md rounded px-8 pb-8 mb-4 flex flex-col my-2 h-full z-20 bg-black bg-opacity-50 duration-300 overflow-y-auto"
+          className="fixed inset-0 m-auto shadow-md rounded px-8 pb-8 mb-4 flex flex-col my-2 h-full z-20 bg-black bg-opacity-50 duration-300 overflow-y-auto"
           x-show="showModal1"
           test-id="modalTitle"
         >
-          <div className="md:flex mb-6">
+          <div className="modal-container bg-white w-11/12 md:max-w-md mx-auto rounded shadow-lg z-50 overflow-y-auto">
             <ModalContent>
-              <CloseButton onClick={onClose}>
+              <CloseButton onClick={onClose} data-testid="closeButton">
                 <CloseIcon />
               </CloseButton>
               <ModalTitle className="mb-5" data-testid="modalTitle">
@@ -40,7 +42,7 @@ export const Modal: FC<ModalProps> = ({
               </ModalTitle>
               {children}
               <footer className="flex justify-end p-2">
-                <FormButton content="ADD PRODUCT" />
+                <FormButton content={buttonTitle} />
               </footer>
             </ModalContent>
           </div>

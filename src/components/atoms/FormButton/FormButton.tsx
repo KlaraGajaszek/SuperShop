@@ -9,7 +9,7 @@ export const FormButton: FC<PropsButton> = ({ content }) => {
     <button
       data-testid="buttonID"
       type="submit"
-      className="rounded-md bg-black text-yellow-100 font-semibold  focus:outline-none p-3 shadow-lg "
+      className="bg-black font-semibold text-white p-2 w-32 rounded-lg focus:outline-none focus:ring shadow-lg hover:shadow-none transition-all duration-300"
     >
       {content}
     </button>

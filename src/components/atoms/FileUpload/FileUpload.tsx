@@ -2,9 +2,13 @@ import React, { FC, useState } from 'react';
 
 type FileUploadPropsType = {
   GetFiles: (file: React.ChangeEvent<HTMLInputElement>) => void;
+  className: string;
 };
 
-export const FileUpload: FC<FileUploadPropsType> = ({ GetFiles }) => {
+export const FileUpload: FC<FileUploadPropsType> = ({
+  GetFiles,
+  className,
+}) => {
   const [highlighted, setHighlighted] = useState<boolean>(false);
 
   const onDragEnter = () => {
@@ -36,7 +40,7 @@ export const FileUpload: FC<FileUploadPropsType> = ({ GetFiles }) => {
   return (
     <>
       <div
-        className={`cursor-pointer appearance-none block w-full bg-grey text-grey-darker border border-grey-lighter rounded py-3 px-4 ${
+        className={`cursor-pointer appearance-none block w-full bg-grey text-grey-darker border border-grey-lighter rounded py-3 px- ${className} ${
           highlighted ? 'border-green-600 bg-green-100' : 'bg-grey'
         }`}
         onDragEnter={onDragEnter}

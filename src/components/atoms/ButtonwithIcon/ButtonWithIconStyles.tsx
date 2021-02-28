@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 
-export const Button = styled.button<{ margin: string }>`
+export const Button = styled.button`
   background-color: transparent;
   border: none;
   outline: none;
-  margin: ${(props) => props.margin};
+  background-color: black;
   padding: 0;
 `;
 

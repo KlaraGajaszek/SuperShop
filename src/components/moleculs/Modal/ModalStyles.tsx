@@ -48,9 +48,9 @@ export const CloseIcon = styled(Close)`
 export const ModalTitle = styled.p`
   color: #4c4c4c;
   font-weight: bold;
-  font-size: 35px;
-  padding-top: 40px;
-  margin-left: 15px;
+  font-size: 25px;
+  padding-top: 15px;
+  margin-left: 25px;
 `;
 
 export const ModalFooter = styled.div`
