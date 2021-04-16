@@ -1,35 +1,41 @@
-import React from 'react';
+import React, { useState } from 'react'
 
-import { Box, ImgBox, TitleBox, Title, BoxWrapper } from './ProductPageStyles';
-import Tag from '../../components/atoms/Tag/Tag';
-import ProductImg from '../../components/atoms/ProductImg/ProductImg';
-import data from '../../utils/data';
-import { PropsProduct } from '../../models/Product';
+import { Box, ImgBox, TitleBox, Title, BoxWrapper } from './ProductPageStyles'
+import Tag from '../../components/atoms/Tag/Tag'
+import ProductImg from '../../components/atoms/ProductImg/ProductImg'
+import axios from 'axios'
+import { PropsProduct } from '../../models/Product'
 
-class ProductPage extends React.Component {
-  productData: PropsProduct = data.find((product) => product?.id === 1)!;
-
-  render() {
-    return (
-      <BoxWrapper>
-        <Box>
-          <ProductImg imageSrc={this.productData.imageSrc} />
-          <TitleBox>
-            <Title>{this.productData.name}</Title>
-            <Title>{this.productData.price}</Title>
-          </TitleBox>
-          <div>{this.productData.description}</div>
-          <ImgBox className="min-h-screen justify-center flex">
-            <div className="grid grid-cols-1 gap-4 sm:grid-cols-1 md:grid-cols-3">
-              {this.productData.tags.map((tag) => (
-                <Tag title={tag} />
-              ))}
-            </div>
-          </ImgBox>
-        </Box>
-      </BoxWrapper>
-    );
-  }
+const getProducts = () => {
+  axios
+    .get('http://localhost:3001/api/products')
+    .then((response) => console.log(response.data))
+    .catch((e) => console.log(e))
 }
 
-export default ProductPage;
+const ProductPage = () => {
+  const [products, setProducts] = useState<any>()
+  // const productData: PropsProduct = products.find((product) => product?.id === 1)!
+  setProducts(getProducts())
+  return (
+    <BoxWrapper>
+      {/* <Box>
+        <ProductImg imageSrc={productData.imageSrc} />
+        <TitleBox>
+          <Title>{productData.name}</Title>
+          <Title>{productData.price}</Title>
+        </TitleBox>
+        <div>{productData.description}</div>
+        <ImgBox className="min-h-screen justify-center flex">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-1 md:grid-cols-3">
+            {productData.tags.map((tag) => (
+              <Tag title={tag} />
+            ))}
+          </div>
+        </ImgBox>
+      </Box> */}
+    </BoxWrapper>
+  )
+}
+
+export default ProductPage

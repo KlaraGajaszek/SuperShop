@@ -1,12 +1,12 @@
-import React from 'react';
+import React from 'react'
 
-import { Modal } from '../../components/moleculs/Modal/Modal';
-import { closeModal } from '../../store/actions/setModalState';
-import { useDispatch } from 'react-redux';
-import { FormPage } from '../../pages/Form/FormPage';
+import { Modal } from '../../components/moleculs/Modal/Modal'
+import { closeModal } from '../../store/actions/setModalState'
+import { useDispatch } from 'react-redux'
+import { FormPage } from '../../pages/Form/FormPage'
 
-export const AddProductsModal = (): any => {
-  const dispatch = useDispatch();
+export const AddProductsModal = () => {
+  const dispatch = useDispatch()
 
   return (
     <FormPage>
@@ -15,12 +15,12 @@ export const AddProductsModal = (): any => {
           content={'Add product'}
           isOpen={true}
           onClose={() => {
-            dispatch(closeModal());
+            dispatch(closeModal())
           }}
         >
           {form}
         </Modal>
       )}
     </FormPage>
-  );
-};
+  )
+}

@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
-import { useFormikContext } from 'formik';
+import React, { useState } from 'react'
 
-import { Form } from './FormTemplateStyles';
-import { InputDefault } from '../../components/atoms/Input/Input';
-import { DescriptionField } from '../../components/atoms/DescriptionField/DescriptionField';
-import { FileUpload } from '../../components/atoms/FileUpload/FileUpload';
+import { Form } from './FormTemplateStyles'
+import { InputDefault } from '../../components/atoms/Input/Input'
+import { DescriptionField } from '../../components/atoms/DescriptionField/DescriptionField'
+import { FileUpload } from '../../components/atoms/FileUpload/FileUpload'
 
 export const FormTemplate = () => {
-  const [files, setFiles] = useState<any>([]);
+  const [files, setFiles] = useState<any>([])
+  console.log('test')
 
   return (
     <Form className="px-8">
@@ -29,9 +29,9 @@ export const FormTemplate = () => {
           </label>
           <InputDefault
             type="text"
-            name="name"
+            name="price"
             radius="5px"
-            placeholder="Product Name"
+            placeholder="Product Price"
           />
         </div>
       </div>
@@ -51,5 +51,5 @@ export const FormTemplate = () => {
       </label>
       <FileUpload GetFiles={(file) => setFiles([...files, file])} />
     </Form>
-  );
-};
+  )
+}
