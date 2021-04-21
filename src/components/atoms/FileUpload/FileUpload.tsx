@@ -1,11 +1,11 @@
-import React, { FC, useState } from 'react'
+import React from 'react'
 
 type FileUploadPropsType = {
-  GetFiles: (file: React.ChangeEvent<HTMLInputElement>) => void
+  fileRef: React.RefObject<HTMLInputElement>
 }
 
-export const FileUpload = () => {
-  const [selectedFile, setSelectedFile] = useState<any>(null)
+
+export const FileUpload = ({fileRef}: FileUploadPropsType) => {
   return (
     <>
       <div
@@ -13,9 +13,8 @@ export const FileUpload = () => {
       >
         <input
           type="file"
-          value={selectedFile}
           data-testid="file-uploader"
-          onChange={(e: any) => setSelectedFile(e?.target?.files[0])}
+          ref={fileRef}
         />
       </div>
     </>

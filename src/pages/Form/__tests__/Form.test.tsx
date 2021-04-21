@@ -22,8 +22,7 @@ const wrapper = ({ children }: any) => (
     <Form>{children}</Form>
   </Formik>
 )
-
-describe('check that reques is good', () => {
+xdescribe('check that reques is good', () => {
   it("it's submit succesfully", async () => {
     render(<FormTemplate />, { wrapper })
 

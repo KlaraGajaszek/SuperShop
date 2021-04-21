@@ -5,10 +5,7 @@ import { InputDefault } from '../../components/atoms/Input/Input'
 import { DescriptionField } from '../../components/atoms/DescriptionField/DescriptionField'
 import { FileUpload } from '../../components/atoms/FileUpload/FileUpload'
 
-export const FormTemplate = () => {
-  const [files, setFiles] = useState<any>([])
-  console.log('test')
-
+export const FormTemplate = ({fileRef}: any) => {
   return (
     <Form className="px-8">
       <div className=" flex flex-row  justify-around ">
@@ -49,7 +46,7 @@ export const FormTemplate = () => {
       <label className="block uppercase tracking-wide text-grey-darker text-sm font-bold mb-2">
         Add images
       </label>
-      <FileUpload GetFiles={(file) => setFiles([...files, file])} />
+      <FileUpload fileRef={fileRef} />
     </Form>
   )
 }
