@@ -29,7 +29,6 @@ const validationSchema = Yup.object().shape({
 })
 
 export const FormPage: FC<any> = ({ children }: any) => {
-  // const formik: any = useFormikContext()
   const onSubmit = (values: any, onSubmitProps: FormikHelpers<any>) => {
     console.log('values', values)
 

@@ -1,22 +1,22 @@
-import React, { FC } from 'react';
+import React, { FC } from 'react'
 
-import { InputError, FieldBox } from './DescriptionFieldStyles';
-import { Field, ErrorMessage } from 'formik';
+import { InputError } from './DescriptionFieldStyles'
+import { Field, ErrorMessage } from 'formik'
 
 type PropsInput = {
-  placeholder: string;
-  radius: string;
-  margin?: string;
-  name: string;
-  type: string;
-  width?: string;
-};
+  placeholder: string
+  radius: string
+  margin?: string
+  name: string
+  type: string
+  width?: string
+}
 
-export const CustomInput: any = () => {
+export const CustomInput = () => {
   return (
     <textarea className="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3  mb-3" />
-  );
-};
+  )
+}
 
 export const DescriptionField: FC<PropsInput> = ({
   name,
@@ -27,16 +27,17 @@ export const DescriptionField: FC<PropsInput> = ({
     <div>
       <Field
         data-testid="fieldID"
+        className="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-5 mb-3"
         type="text"
         id="name"
         name={name}
-        as={CustomInput}
+        as="textarea"
         radius={radius}
         placeholder={placeholder}
-        cols="300"
-        rows="500"
+        cols="3"
+        rows="5"
       />
       <ErrorMessage name={name} component={InputError} />
     </div>
-  );
-};
+  )
+}

@@ -1,9 +1,8 @@
-import React from 'react';
-import { screen, render, fireEvent } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
-import { Formik, Form, Field } from 'formik';
+import React from 'react'
+import { render } from '@testing-library/react'
+import { Formik, Form } from 'formik'
 
-import { InputDefault } from '../Input';
+import { InputDefault } from '../Input'
 
 const wrapper = ({ children }) => (
   <Formik
@@ -17,12 +16,12 @@ const wrapper = ({ children }) => (
   >
     <Form>{children}</Form>
   </Formik>
-);
+)
 
 describe('Input', () => {
   it('render without crash', () => {
-    render(<InputDefault name="description" />, { wrapper });
-  });
+    render(<InputDefault name="description" />, { wrapper })
+  })
 
   // it('called change event without crash', () => {
   //   const onChange = jest.fn();
@@ -35,4 +34,4 @@ describe('Input', () => {
   //   userEvent.type(input, 'test');
   //   expect(onChange).toHaveBeenCalledWith('test');
   // });
-});
+})
