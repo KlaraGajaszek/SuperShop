@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useFormikContext } from 'formik'
 
 import { Form } from './FormTemplateStyles'
 import { InputDefault } from '../../components/atoms/Input/Input'
@@ -6,8 +7,8 @@ import { DescriptionField } from '../../components/atoms/DescriptionField/Descri
 import { FileUpload } from '../../components/atoms/FileUpload/FileUpload'
 
 export const FormTemplate = () => {
-  const [files, setFiles] = useState<any>([])
-  console.log('test')
+  const [files, setFiles] = useState<Array<File>>([])
+  const { submitForm } = useFormikContext()
 
   return (
     <Form className="px-8">
@@ -49,7 +50,10 @@ export const FormTemplate = () => {
       <label className="block uppercase tracking-wide text-grey-darker text-sm font-bold mb-2">
         Add images
       </label>
-      <FileUpload GetFiles={(file) => setFiles([...files, file])} />
+      {/* <FileUpload GetFiles={(file) => setFiles([...files, file])} /> */}
+      <button type="submit" onSubmit={submitForm}>
+        Submit
+      </button>
     </Form>
   )
 }

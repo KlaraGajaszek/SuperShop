@@ -1,30 +1,25 @@
-import React, { FC } from 'react';
+import React, { FC } from 'react'
 
-import {
-  ModalContent,
-  CloseButton,
-  ModalTitle,
-  CloseIcon,
-} from './ModalStyles';
-import { FormButton } from '../../atoms/FormButton/FormButton';
+import { ModalContent, CloseButton, ModalTitle, CloseIcon } from './ModalStyles'
+import { FormButton } from '../../atoms/FormButton/FormButton'
 
 type ModalProps = {
-  isOpen: boolean;
-  onClose: () => void;
-  content: string;
-  onClick?: () => void;
-};
+  isOpen: boolean
+  onClose: () => void
+  content: string
+  onSubmit: string
+}
 
 export const Modal: FC<ModalProps> = ({
   children,
   isOpen,
   onClose,
-  onClick,
   content,
+  onSubmit,
 }) => {
   return (
     <>
-      {isOpen === true && (
+      {isOpen && (
         <div
           className="fixed inset-0 w-full shadow-md rounded px-8 pb-8 mb-4 flex flex-col my-2 h-full z-20 bg-black bg-opacity-50 duration-300 overflow-y-auto"
           x-show="showModal1"
@@ -40,12 +35,12 @@ export const Modal: FC<ModalProps> = ({
               </ModalTitle>
               {children}
               <footer className="flex justify-end p-2">
-                <FormButton content="ADD PRODUCT" />
+                <FormButton content={onSubmit} />
               </footer>
             </ModalContent>
           </div>
         </div>
       )}
     </>
-  );
-};
+  )
+}

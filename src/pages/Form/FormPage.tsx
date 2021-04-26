@@ -69,7 +69,9 @@ export const FormPage: FC<any> = ({ children }: any) => {
       validationSchema={validationSchema}
       onSubmit={(values: any) => console.log(values)}
     >
-      <Form>{children(<FormTemplate />)}</Form>
+      <Form>
+        <FormTemplate />
+      </Form>
     </Formik>
   )
 }
