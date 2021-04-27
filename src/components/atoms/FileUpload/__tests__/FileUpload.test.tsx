@@ -1,5 +1,5 @@
 import React from 'react'
-import { screen, render, within } from '@testing-library/react'
+import { screen, render } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import 'jest-styled-components'
 
@@ -7,7 +7,9 @@ import { FileUpload } from '../FileUpload'
 
 describe('Content', () => {
   it('render without crash', () => {
-    render(<FileUpload />)
+    const ref = React.createRef<HTMLInputElement>();
+
+    render(<FileUpload fileRef={ref}/>)
 
     const content = screen.getByTestId('file-uploader')
 
@@ -15,16 +17,17 @@ describe('Content', () => {
   })
 
   it('upload file without crash', () => {
-    const file = new File([], 'hello.png', { type: 'image/png' })
+    const file = new File(['Test'], 'hello.png', { type: 'image/png' })
+    const ref = React.createRef<HTMLInputElement>();
 
-    render(<FileUpload />)
+    render(<FileUpload fileRef={ref}/>)
 
-    const content = screen.queryByTestId('file-uploader')
+    const fileInput = screen.queryByTestId('file-uploader') as HTMLInputElement;
 
-    expect(content).toBeInTheDocument()
+    expect(fileInput).toBeInTheDocument()
 
-    userEvent.upload(content, file)
+    userEvent.upload(fileInput, file)
 
-    // expect(content).toBeInTheDocument()
+    expect(ref?.current?.files?.length).toBe(1)
   })
 })

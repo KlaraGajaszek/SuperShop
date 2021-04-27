@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React, { FC, useRef } from 'react'
 import axios from 'axios'
 import { Formik, Form, FormikHelpers } from 'formik'
 import * as Yup from 'yup'
@@ -29,16 +29,17 @@ const validationSchema = Yup.object().shape({
 })
 
 export const FormPage: FC<any> = ({ children }: any) => {
+  const fileRef = useRef<HTMLInputElement>(null);
   const onSubmit = (values: any, onSubmitProps: FormikHelpers<any>) => {
-    console.log('values', values)
-
     let bodyFormData = new FormData()
 
     bodyFormData.append('name', values.name)
     bodyFormData.append('description', values.description)
     bodyFormData.append('tags', JSON.stringify(values.tags))
     bodyFormData.append('price', values.price)
-    bodyFormData.append('image', values.image)
+    if(fileRef?.current?.files) {
+      bodyFormData.append('image', fileRef.current.files[0])
+    }
 
     axios({
       method: 'post',
@@ -52,7 +53,7 @@ export const FormPage: FC<any> = ({ children }: any) => {
         )
       },
     })
-      .then(function () {
+      .then(function (val) {
         setTimeout(() => {
           // handleFormModal(false);
         }, 500)
@@ -67,9 +68,9 @@ export const FormPage: FC<any> = ({ children }: any) => {
     <Formik
       initialValues={initialValues}
       validationSchema={validationSchema}
-      onSubmit={(values: any) => console.log(values)}
+      onSubmit={onSubmit}
     >
-      <Form>{children(<FormTemplate />)}</Form>
+      <Form>{children(<FormTemplate fileRef={fileRef} />)}</Form>
     </Formik>
   )
 }
