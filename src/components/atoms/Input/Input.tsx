@@ -13,7 +13,6 @@ type PropsInput = {
 }
 
 export const InputDefault: FC<PropsInput> = ({ name, radius, placeholder }) => {
-  console.log('Input')
   return (
     <FieldBox>
       <Field
