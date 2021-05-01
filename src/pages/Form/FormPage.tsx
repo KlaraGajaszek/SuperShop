@@ -2,6 +2,7 @@ import React, { FC } from 'react'
 import axios from 'axios'
 import { Formik, Form, FormikHelpers } from 'formik'
 import * as Yup from 'yup'
+
 import { FormTemplate } from './FormTemplate'
 
 type InitialValue = {
@@ -67,7 +68,7 @@ export const FormPage: FC<any> = ({ children }: any) => {
     <Formik
       initialValues={initialValues}
       validationSchema={validationSchema}
-      onSubmit={(values: any) => console.log(values)}
+      onSubmit={(values: any) => console.log('values', values)}
     >
       <Form>
         <FormTemplate />

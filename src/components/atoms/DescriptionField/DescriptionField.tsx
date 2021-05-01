@@ -12,12 +12,6 @@ type PropsInput = {
   width?: string
 }
 
-export const CustomInput = () => {
-  return (
-    <textarea className="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3  mb-3" />
-  )
-}
-
 export const DescriptionField: FC<PropsInput> = ({
   name,
   radius,

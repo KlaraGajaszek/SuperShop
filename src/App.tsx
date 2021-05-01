@@ -1,8 +1,7 @@
 import React from 'react'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 
-import Header from './components/organisms/Header/Header'
-import StartView from './pages/StartView/StartView'
+import { Header } from './components/organisms/Header/Header'
 import ProductPage from './pages/Product/ProductPage'
 
 const App = () => {
@@ -10,9 +9,7 @@ const App = () => {
     <BrowserRouter>
       <Header />
       <Switch>
-        <Route path="/">
-          <StartView />
-        </Route>
+        <Route path="/"></Route>
         <Route path="/d">
           <ProductPage />
         </Route>

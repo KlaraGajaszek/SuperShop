@@ -1,46 +1,37 @@
 import React, { FC } from 'react'
 
-import { ModalContent, CloseButton, ModalTitle, CloseIcon } from './ModalStyles'
-import { FormButton } from '../../atoms/FormButton/FormButton'
+import {
+  ModalContent,
+  CloseButton,
+  ModalTitle,
+  CloseIcon,
+  Header,
+} from './ModalStyles'
 
 type ModalProps = {
-  isOpen: boolean
   onClose: () => void
   content: string
-  onSubmit: string
 }
 
-export const Modal: FC<ModalProps> = ({
-  children,
-  isOpen,
-  onClose,
-  content,
-  onSubmit,
-}) => {
+export const Modal: FC<ModalProps> = ({ children, onClose, content }) => {
+  console.log('modal')
   return (
-    <>
-      {isOpen && (
-        <div
-          className="fixed inset-0 w-full shadow-md rounded px-8 pb-8 mb-4 flex flex-col my-2 h-full z-20 bg-black bg-opacity-50 duration-300 overflow-y-auto"
-          x-show="showModal1"
-          test-id="modalTitle"
-        >
-          <div className="md:flex mb-6">
-            <ModalContent>
-              <CloseButton onClick={onClose}>
-                <CloseIcon />
-              </CloseButton>
-              <ModalTitle className="mb-5" data-testid="modalTitle">
-                {content}
-              </ModalTitle>
-              {children}
-              <footer className="flex justify-end p-2">
-                <FormButton content={onSubmit} />
-              </footer>
-            </ModalContent>
-          </div>
-        </div>
-      )}
-    </>
+    <div
+      className="fixed inset-0 shadow-md py-12 flex flex-col z-20 bg-black bg-opacity-50"
+      x-show="showModal1"
+      test-id="modalTitle"
+    >
+      <div className="md:flex mb-6">
+        <ModalContent data-testid="modalId">
+          <Header>
+            <CloseButton onClick={onClose}>
+              <CloseIcon />
+            </CloseButton>
+            <ModalTitle data-testid="modalTitle">{content}</ModalTitle>
+          </Header>
+          {children}
+        </ModalContent>
+      </div>
+    </div>
   )
 }

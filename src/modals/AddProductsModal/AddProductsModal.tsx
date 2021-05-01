@@ -11,7 +11,6 @@ export const AddProductsModal = () => {
   return (
     <Modal
       content={'Add product'}
-      isOpen={true}
       onClose={() => {
         dispatch(closeModal())
       }}

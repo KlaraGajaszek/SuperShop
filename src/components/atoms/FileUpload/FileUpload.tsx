@@ -1,23 +1,21 @@
-import React, { FC, useState } from 'react'
+import React from 'react'
+import { Field } from 'formik'
 
 type FileUploadPropsType = {
-  GetFiles: (file: React.ChangeEvent<HTMLInputElement>) => void
+  fileRef: React.RefObject<HTMLInputElement>
 }
 
-export const FileUpload = () => {
-  const [selectedFile, setSelectedFile] = useState<any>(null)
+export const FileUpload = ({ fileRef }: FileUploadPropsType) => {
   return (
-    <>
-      <div
-        className={`cursor-pointer appearance-none block w-full bg-grey text-grey-darker border border-grey-lighter rounded py-3 px-4 `}
-      >
-        <input
-          type="file"
-          value={selectedFile}
-          data-testid="file-uploader"
-          onChange={(e: any) => setSelectedFile(e?.target?.files[0])}
-        />
-      </div>
-    </>
+    <div
+      className={`cursor-pointer appearance-none block w-full bg-grey text-grey-darker border border-grey-lighter rounded py-3 px-4 `}
+    >
+      <Field
+        name="image"
+        render={() => (
+          <input type="file" data-testid="file-uploader" ref={fileRef} />
+        )}
+      />
+    </div>
   )
 }

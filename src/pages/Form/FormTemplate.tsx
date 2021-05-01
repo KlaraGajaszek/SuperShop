@@ -1,17 +1,18 @@
-import React, { useState } from 'react'
+import React, { useRef } from 'react'
 import { useFormikContext } from 'formik'
 
 import { Form } from './FormTemplateStyles'
 import { InputDefault } from '../../components/atoms/Input/Input'
 import { DescriptionField } from '../../components/atoms/DescriptionField/DescriptionField'
 import { FileUpload } from '../../components/atoms/FileUpload/FileUpload'
+import { Button } from '../../components/atoms/FormButton/Button'
 
 export const FormTemplate = () => {
-  const [files, setFiles] = useState<Array<File>>([])
   const { submitForm } = useFormikContext()
+  const productImageRef = useRef<any>()
 
   return (
-    <Form className="px-8">
+    <Form className="px-8 static ">
       <div className=" flex flex-row  justify-around ">
         <div className="mr-5 mb-5">
           <label className="block uppercase tracking-wide text-grey-darker text-sm font-bold mb-2">
@@ -50,10 +51,19 @@ export const FormTemplate = () => {
       <label className="block uppercase tracking-wide text-grey-darker text-sm font-bold mb-2">
         Add images
       </label>
-      {/* <FileUpload GetFiles={(file) => setFiles([...files, file])} /> */}
-      <button type="submit" onSubmit={submitForm}>
-        Submit
-      </button>
+      <div className="mb-5">
+        <FileUpload fileRef={productImageRef.current} />
+      </div>
+
+      <div className="static mb-5 mr-0">
+        <Button
+          bgColor="black"
+          textColor="white"
+          size="small"
+          content="Submit"
+          onClick={submitForm}
+        />
+      </div>
     </Form>
   )
 }

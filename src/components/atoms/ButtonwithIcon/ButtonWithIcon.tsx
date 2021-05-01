@@ -1,17 +1,16 @@
-import React, { FC } from 'react';
+import React, { FC } from 'react'
 
-import { Icon, Button } from './ButtonWithIconStyles';
+import { Icon, Button } from './ButtonWithIconStyles'
 
 type PropsButtonWithIcon = {
-  disable: boolean;
-  type: string;
-  width: string;
-  height: string;
-  onClick: () => void;
-  color: string;
-  childComp: any;
-  margin: string;
-};
+  disable: boolean
+  width: string
+  height: string
+  onClick: () => void
+  color: string
+  icon: any
+  margin: string
+}
 
 const ButtonWithIcon: FC<PropsButtonWithIcon> = ({
   disable = false,
@@ -25,14 +24,14 @@ const ButtonWithIcon: FC<PropsButtonWithIcon> = ({
       data-testid="buttonId"
     >
       <Icon
-        as={props.childComp}
+        as={props.icon}
         width={props.width}
         height={props.height}
         color={props.color}
         data-testid="buttonIcon"
       />
     </Button>
-  );
-};
+  )
+}
 
-export default ButtonWithIcon;
+export default ButtonWithIcon
