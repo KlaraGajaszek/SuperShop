@@ -1,5 +1,4 @@
-import React, { useRef, useEffect } from 'react'
-import { useFormikContext } from 'formik'
+import React from 'react'
 
 import { Form } from './FormTemplateStyles'
 import { InputDefault } from '../../components/atoms/Input/Input'
@@ -7,15 +6,7 @@ import { DescriptionField } from '../../components/atoms/DescriptionField/Descri
 import { FileUpload } from '../../components/atoms/FileUpload/FileUpload'
 import { Button } from '../../components/atoms/FormButton/Button'
 
-export const FormTemplate = ({ fileRef }: any) => {
-  const { values, submitForm } = useFormikContext()
-  const productImageRef = useRef<any>()
-
-  React.useEffect(() => {
-    // Submit the form imperatively as an effect as soon as form values.token are 6 digits long
-    console.log('DUPA')
-  }, [submitForm])
-
+export const FormTemplate = ({ fileRef }) => {
   return (
     <Form className="px-8">
       <div className=" flex flex-row  justify-around ">
@@ -66,7 +57,6 @@ export const FormTemplate = ({ fileRef }: any) => {
           textColor="white"
           size="small"
           content="Submit"
-          onClick={submitForm}
         />
       </div>
     </Form>

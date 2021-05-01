@@ -1,4 +1,4 @@
-import React, { FC, useRef } from 'react'
+import React, { useRef } from 'react'
 import axios from 'axios'
 import { Formik, Form, FormikHelpers } from 'formik'
 import * as Yup from 'yup'
@@ -16,7 +16,6 @@ type InitialValue = {
 const initialValues: any = {
   name: '',
   description: '',
-  image: '',
   tags: [''],
   price: '',
 }
@@ -24,16 +23,15 @@ const initialValues: any = {
 const validationSchema = Yup.object().shape({
   name: Yup.string().required().label('Name'),
   description: Yup.string().required().label('Description'),
-  image: Yup.string().label('Image'),
   tags: Yup.string().label('Tags'),
   price: Yup.string().label('Price'),
 })
 
-export const FormPage: FC<any> = ({ children }: any) => {
+export const FormPage = () => {
   const fileRef = useRef<HTMLInputElement>(null)
 
   const onSubmit = (values: any, onSubmitProps: FormikHelpers<any>) => {
-    console.log('values', values)
+    console.log('XTEAM', values)
 
     let bodyFormData = new FormData()
 
@@ -41,8 +39,8 @@ export const FormPage: FC<any> = ({ children }: any) => {
     bodyFormData.append('description', values.description)
     bodyFormData.append('tags', JSON.stringify(values.tags))
     bodyFormData.append('price', values.price)
-    bodyFormData.append('image', values.image)
     if (fileRef?.current?.files) {
+      console.log('fileRef', fileRef.current.files[0])
       bodyFormData.append('image', fileRef.current.files[0])
     }
 
@@ -59,20 +57,15 @@ export const FormPage: FC<any> = ({ children }: any) => {
       },
     })
       .then(function () {
-        setTimeout(() => {
-          // handleFormModal(false);
-        }, 500)
         onSubmitProps.resetForm()
       })
-      .catch(function (response) {
-        //handle error
-      })
+      .catch((e) => console.log(e))
   }
 
   return (
     <Formik
       initialValues={initialValues}
-      validationSchema={validationSchema}
+      // validationSchema={validationSchema}
       onSubmit={onSubmit}
     >
       <Form>

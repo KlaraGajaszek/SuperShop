@@ -37,7 +37,7 @@ describe('ButtonWithIcon', () => {
       />
     )
 
-    const button = screen.queryByTestId('buttonId')
+    const button = screen.queryByTestId('buttonId') as HTMLElement
     userEvent.click(button)
     expect(button).toHaveAttribute('disabled')
     expect(mockFn).not.toHaveBeenCalled()
